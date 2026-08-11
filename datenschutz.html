@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===================== SEO ===================== -->
+  <title>Datenschutzerklärung | Blade – Subscription Slayer</title>
+  <meta name="description" content="Datenschutzerklärung für die App Blade und diese Webseite. On-device Verarbeitung, DSGVO- und DSG-konform (Österreich)." />
+  <meta name="theme-color" content="#000000" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://blade.app/datenschutz.html" />
+
+  <!-- ===================== Fonts ===================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- ===================== Favicon (echtes App-Icon) ===================== -->
+  <link rel="icon" type="image/png" href="blade-icon.png" />
+  <link rel="apple-touch-icon" href="blade-icon.png" />
+
+  <!-- ===================== Tailwind (CDN) ===================== -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: { ink:'#000000', base:'#14181F', base2:'#191921', silver:'#C7CEDB', steel:'#9AA4B2', slate2:'#5B6472' },
+          fontFamily: { sans: ['Inter','system-ui','-apple-system','sans-serif'] },
+          borderRadius: { '2xl':'20px', '3xl':'28px' },
+        },
+      },
+    };
+  </script>
+
+  <!-- ===================== Feinheiten ===================== -->
+  <style>
+    :root { color-scheme: dark; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: radial-gradient(1200px 800px at 70% -10%, #1c2230 0%, transparent 55%),
+                  linear-gradient(180deg, #14181F 0%, #000000 100%);
+      background-attachment: fixed;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    .glass {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(18px) saturate(140%);
+      -webkit-backdrop-filter: blur(18px) saturate(140%);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 20px 60px -20px rgba(0,0,0,0.7);
+    }
+    .glass-strong {
+      background: rgba(255,255,255,0.09);
+      backdrop-filter: blur(24px) saturate(150%);
+      -webkit-backdrop-filter: blur(24px) saturate(150%);
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+    .metallic {
+      background: linear-gradient(135deg,#fff 0%,#C7CEDB 40%,#9AA4B2 70%,#5B6472 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .ring-metallic { box-shadow: inset 0 0 0 1px rgba(199,206,219,0.25); }
+
+    a:focus-visible, button:focus-visible { outline: 2px solid #C7CEDB; outline-offset: 3px; border-radius: 8px; }
+
+    /* Platzhalter, die du noch ausfüllen musst */
+    .placeholder {
+      background: rgba(199,206,219,0.12);
+      border: 1px dashed rgba(199,206,219,0.5);
+      border-radius: 6px;
+      padding: 0 6px;
+      color: #E4E9F1;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* Lesefreundliche Typo für den Rechtstext */
+    .legal h2 { color:#fff; font-weight:800; font-size:1.35rem; margin-top:2.25rem; margin-bottom:.6rem; letter-spacing:-0.01em; }
+    .legal h3 { color:#fff; font-weight:700; font-size:1.05rem; margin-top:1.4rem; margin-bottom:.4rem; }
+    .legal p  { color:#9AA4B2; line-height:1.75; margin-bottom:.9rem; }
+    .legal ul { margin:.4rem 0 1rem; padding-left:1.1rem; }
+    .legal li { color:#9AA4B2; line-height:1.7; margin-bottom:.5rem; list-style: disc; }
+    .legal strong { color:#fff; }
+    .legal a { color:#C7CEDB; text-decoration: underline; text-underline-offset: 2px; }
+    .legal hr { border:0; border-top:1px solid rgba(255,255,255,0.08); margin:2rem 0; }
+
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-thumb { background:#2a2f3a; border-radius:999px; }
+  </style>
+</head>
+
+<body class="font-sans text-silver antialiased">
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="fixed top-0 inset-x-0 z-50">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+      <nav class="mt-3 glass rounded-2xl px-4 sm:px-5 py-3 flex items-center justify-between" aria-label="Navigation">
+        <a href="index.html" class="flex items-center gap-2.5 shrink-0" aria-label="Blade Startseite">
+          <img src="blade-icon.png" alt="Blade Logo" width="34" height="34" class="rounded-[9px] ring-metallic" />
+          <span class="text-white font-extrabold text-lg tracking-tight">Blade</span>
+        </a>
+        <a href="index.html" class="inline-flex items-center gap-2 rounded-full glass-strong px-4 py-2 text-sm font-semibold text-white hover:bg-white/10 transition">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          Zurück zur Seite
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================ CONTENT ============================ -->
+  <main class="pt-28 sm:pt-32 pb-20">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+
+      <!-- Kopf -->
+      <div class="mb-8">
+        <p class="text-sm font-semibold text-slate2 uppercase tracking-widest">Rechtliches</p>
+        <h1 class="mt-3 text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Datenschutzerklärung <span class="metallic">Blade</span>
+        </h1>
+        <p class="mt-3 text-steel">Für die App „Blade" und diese Webseite · DSGVO &amp; österreichisches DSG.</p>
+      </div>
+
+      <!-- Hinweis auf Platzhalter -->
+      <div class="glass rounded-2xl p-4 mb-8 text-sm text-steel">
+        <strong class="text-white">Hinweis:</strong> Die
+        <span class="placeholder">[eckigen Platzhalter]</span> müssen vor der Veröffentlichung
+        durch deine echten Angaben ersetzt werden (Adresse, Support-E-Mail, Löschformular-URL).
+      </div>
+
+      <!-- Rechtstext -->
+      <article class="glass rounded-3xl p-6 sm:p-10 legal">
+
+        <h2>1. Verantwortlicher</h2>
+        <p>Verantwortlich für die Datenverarbeitung im Sinne der EU-Datenschutz-Grundverordnung (DSGVO) und des österreichischen Datenschutzgesetzes (DSG) ist:</p>
+        <p>
+          Batuhan Gündüz<br />
+          <span class="placeholder">[Straße und Hausnummer]</span><br />
+          <span class="placeholder">[PLZ und Ort, Österreich]</span><br />
+          E-Mail: <span class="placeholder">[Deine Support-E-Mail-Adresse]</span>
+        </p>
+
+        <hr />
+
+        <h2>2. Server-Log-Files bei Webseitenaufruf</h2>
+        <p>Beim Aufruf dieser Webseite erhebt der Hosting-Provider automatisch Informationen in sogenannten Server-Log-Files. Dies umfasst IP-Adresse, Datum/Uhrzeit, Browser-Typ und das Betriebssystem. Die Verarbeitung erfolgt zur Sicherstellung des technischen Betriebs und der Sicherheit auf Grundlage unseres berechtigten Interesses gemäß Art. 6 Abs. 1 lit. f DSGVO.</p>
+
+        <hr />
+
+        <h2>3. Registrierung und Benutzerkonto</h2>
+        <p>Für die Nutzung von Blade ist ein Benutzerkonto erforderlich.</p>
+        <ul>
+          <li><strong>E-Mail-Registrierung:</strong> Wir speichern Ihre E-Mail-Adresse und ein gehashtes (verschlüsseltes) Passwort.</li>
+          <li><strong>Drittanbieter-Anmeldung (Google Sign-In / Apple ID):</strong> Bei Nutzung dieser Dienste erhalten wir ausschließlich die vom Anbieter freigegebene E-Mail-Adresse und eine eindeutige ID zur Authentifizierung.</li>
+        </ul>
+        <p>Rechtsgrundlage ist die Vertragserfüllung gemäß Art. 6 Abs. 1 lit. b DSGVO.</p>
+
+        <hr />
+
+        <h2>4. Kernfunktionen &amp; besonderer Schutz Ihrer Daten</h2>
+
+        <h3>a) E-Mail-Tiefenscan &amp; On-Device-Verarbeitung (Datenschutz durch Technik)</h3>
+        <p>Das Auslesen von Abonnements und Verträgen aus Ihrem E-Mail-Postfach (Gmail, iCloud, Yahoo, GMX, Web.de, T-Online etc.) erfolgt <strong>ausschließlich lokal auf Ihrem Endgerät („On-Device")</strong>.</p>
+        <ul>
+          <li>Es werden <strong>keine E-Mail-Inhalte</strong> oder E-Mail-Betreffzeilen auf externe Server oder unsere Server übertragen.</li>
+          <li>Zugangsdaten (wie IMAP-Passwörter oder OAuth-Tokens) werden ausschließlich lokal in den gesicherten Speicherbereichen Ihres Geräts (z. B. iOS Keychain oder Android Keystore) verschlüsselt hinterlegt.</li>
+        </ul>
+
+        <h3>b) Google API Services User Data Policy</h3>
+        <p>Die Nutzung von Informationen, die über Gmail-APIs empfangen werden, entspricht der „Google API Services User Data Policy", einschließlich der Anforderungen für die eingeschränkte Nutzung („Limited Use"). Daten aus Gmail-Schnittstellen werden nicht für Werbezwecke verwendet oder an Dritte weitergegeben.</p>
+
+        <h3>c) Inbox Slayer &amp; KI-Mail-Import</h3>
+        <p>Der Scan von Newslettern sowie der manuelle Import von E-Mail-Texten wird direkt auf dem Gerät ausgeführt. Es erfolgt kein Tracking Ihres Leseverhaltens.</p>
+
+        <h3>d) Synchronisation &amp; Haushalt-Sharing</h3>
+        <p>Von Ihnen angelegte Abonnements (Anbietername, Kosten, Zahlungszyklus) sowie Freigaben innerhalb eines „Haushalts" werden auf unseren Servern innerhalb der Europäischen Union verschlüsselt gespeichert, um die Synchronisation zwischen Ihren Geräten zu ermöglichen (Art. 6 Abs. 1 lit. b DSGVO).</p>
+
+        <h3>e) Temporäre Wiederherstellung</h3>
+        <p>Gelöschte Einträge verbleiben für 24 Stunden in einem temporären Zwischenspeicher auf dem Gerät bzw. Server, um ein versehentliches Löschen rückgängig machen zu können. Danach werden sie unwiderruflich entfernt.</p>
+
+        <hr />
+
+        <h2>5. Löschung von Daten und Benutzerkonto</h2>
+        <p>Sie können Ihr Benutzerkonto sowie alle damit verknüpften Daten jederzeit direkt in den App-Einstellungen unter „Konto löschen" oder über unsere Webseite unter <span class="placeholder">[URL zu deinem Löschformular, z. B. deine-domain.at/account-deletion]</span> unwiderruflich löschen.</p>
+
+        <h3>a) In-App-Käufe und Abonnement-Verwaltung</h3>
+        <p>Über die App können Sie kostenpflichtige Abonnements erwerben. Die Abrechnung und Abwicklung der Zahlungen erfolgt ausschließlich über die Betreiber der jeweiligen App-Stores:</p>
+        <ul>
+          <li><strong>Apple App Store:</strong> Apple Distribution International Ltd., Hollyhill Industrial Estate, Hollyhill, Cork, Irland.</li>
+          <li><strong>Google Play Store:</strong> Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.</li>
+        </ul>
+        <p>Wir selbst verarbeiten keine Bank- oder Kreditkartendaten. Zur Freischaltung und Verwaltung Ihres Abonnement-Status in der App verarbeiten wir lediglich anonymisierte Kauf- und Transaktions-IDs sowie den Abo-Status (Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO – Vertragserfüllung).</p>
+
+        <h3>b) Einsatz von Google Firebase (App-Backend &amp; Authentifizierung)</h3>
+        <p>Für die Bereitstellung des App-Backends, die Verwaltung der Nutzerkonten (Firebase Authentication) sowie zur Speicherung synchronisierter Abo-Daten nutzen wir den Dienst <strong>Google Firebase</strong>, betrieben von der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland (Mutterunternehmen: Google LLC, USA).</p>
+        <ul>
+          <li><strong>Zweck &amp; Daten:</strong> Firebase speichert Kontodaten (wie Ihre E-Mail-Adresse und User-ID) und synchronisierte App-Daten in einer gesicherten Cloud-Datenbank.</li>
+          <li><strong>Rechtsgrundlage:</strong> Die Verarbeitung erfolgt zur Vertragserfüllung gemäß Art. 6 Abs. 1 lit. b DSGVO.</li>
+          <li><strong>Auftragsverarbeitung &amp; Drittlandtransfer:</strong> Wir haben mit Google einen Vertrag zur Auftragsverarbeitung (AVV) abgeschlossen. Google LLC (USA) ist unter dem EU-U.S. Data Privacy Framework zertifiziert, wodurch ein angemessenes Datenschutzniveau für eventuelle Datenübertragungen in die USA garantiert wird.</li>
+        </ul>
+
+        <hr />
+
+        <h2>6. Speicherdauer</h2>
+        <p>Wir verarbeiten Ihre Daten nur so lange, wie es für die Erfüllung des Vertragszwecks erforderlich ist oder gesetzliche Aufbewahrungsfristen in Österreich (z. B. § 132 BAO für Buchhaltungsunterlagen) dies vorschreiben.</p>
+
+        <hr />
+
+        <h2>7. Ihre Rechte &amp; Beschwerderecht</h2>
+        <p>Ihnen stehen nach der DSGVO die Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch zu.</p>
+        <p>Wenn Sie glauben, dass die Verarbeitung Ihrer Daten gegen das Datenschutzrecht verstößt, haben Sie das Recht, sich bei der zuständigen Aufsichtsbehörde zu beschweren:</p>
+        <p>
+          <strong>Österreichische Datenschutzbehörde</strong><br />
+          Barichgasse 40–42, 1030 Wien<br />
+          E-Mail: <a href="mailto:dsb@dsb.gv.at">dsb@dsb.gv.at</a><br />
+          Website: <a href="https://www.dsb.gv.at" target="_blank" rel="noopener">https://www.dsb.gv.at</a>
+        </p>
+
+        <hr />
+        <p class="text-xs text-slate2">Stand: <span id="stand"></span>. Diese Datenschutzerklärung wird bei Änderungen der Verarbeitung aktualisiert.</p>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="border-t border-white/10 py-10">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 flex flex-col sm:flex-row justify-between gap-3 text-xs text-slate2">
+      <p>© <span id="year"></span> Blade. Alle Rechte vorbehalten.</p>
+      <div class="flex gap-4">
+        <a href="index.html" class="hover:text-white transition">Start</a>
+        <a href="index.html#faq" class="hover:text-white transition">FAQ</a>
+        <a href="datenschutz.html" class="text-white">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Datums-Stand: aktuelles Datum in DE-Format
+    document.getElementById('stand').textContent = new Date().toLocaleDateString('de-AT', { year:'numeric', month:'long' });
+  </script>
+</body>
+</html>
