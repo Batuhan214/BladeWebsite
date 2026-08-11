@@ -37,8 +37,9 @@ Einfach `index.html` im Browser öffnen oder den Ordner per Drag-and-drop auf
 ## Anpassen
 
 - **Echte Screenshots:** Die Dummy-Mockups sind reine HTML/CSS-Platzhalter. Zum Ersetzen
-  den Inhalt der `.iphone-screen` bzw. der `.glass`-Mockup-Karten durch ein
-  `<img src="…" alt="…" loading="lazy">` austauschen.
+  in `screens/` liegen echte App-Screenshots (Übersicht, Abos, Kündigen, Inbox,
+  Zuhause) und stecken bereits in iPhone-Rahmen. Zum Aktualisieren einfach die
+  PNGs in `screens/` ersetzen (Hochformat ~9:19,5, z. B. 570×1240).
 - **Store-Links:** Alle App-Store-/Google-Play-Buttons verlinken aktuell auf `#cta`
   bzw. `#`. Die echten Store-URLs dort eintragen (Suche nach `App Store` / `Google Play`).
 - **Rechtliches:** Impressum-, Datenschutz- und Social-Links im Footer sind Platzhalter (`#`).
