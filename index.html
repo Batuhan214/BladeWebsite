@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===================== SEO ===================== -->
+  <title>Blade – Subscription Slayer | Behalte deine Abos im Griff</title>
+  <meta name="description" content="Blade ist der smarte Abo-Manager für iOS & Android. Erkenne Abos automatisch per KI – komplett on-device und DSGVO-konform. Slay your subscriptions." />
+  <meta name="theme-color" content="#000000" />
+  <meta name="author" content="Blade" />
+  <link rel="canonical" href="https://blade.app/" />
+
+  <!-- ===================== Open Graph ===================== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Blade – Subscription Slayer" />
+  <meta property="og:description" content="Behalte deine Abos, Kosten und Kündigungstermine im Griff. On-device KI-Scan, DSGVO-konform, 14 Sprachen." />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:image" content="https://blade.app/og-image.png" />
+  <meta property="og:url" content="https://blade.app/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blade – Subscription Slayer" />
+  <meta name="twitter:description" content="Slay your subscriptions. On-device KI-Abo-Manager, DSGVO-konform." />
+
+  <!-- ===================== Fonts ===================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- ===================== Favicon (inline SVG blade "B") ===================== -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23191921'/%3E%3Cpath d='M22 16h13a11 11 0 0 1 3 21 11 11 0 0 1-3 11H22z' fill='%23C7CEDB'/%3E%3Cpath d='M31 22l9 6-9 6zM31 36l9 6-9 6z' fill='%23191921'/%3E%3C/svg%3E" />
+
+  <!-- ===================== Tailwind (CDN) ===================== -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tailwind Design-Tokens: nur Dark Mode, metallisches Farbsystem
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            ink:    '#000000',
+            base:   '#14181F',
+            base2:  '#191921',
+            silver: '#C7CEDB',
+            steel:  '#9AA4B2',
+            slate2: '#5B6472',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          borderRadius: {
+            '2xl': '20px',
+            '3xl': '28px',
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- ===================== Feinheiten (Glassmorphism, Glow, Motion) ===================== -->
+  <style>
+    :root { color-scheme: dark; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: radial-gradient(1200px 800px at 70% -10%, #1c2230 0%, transparent 55%),
+                  linear-gradient(180deg, #14181F 0%, #000000 100%);
+      background-attachment: fixed;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* Liquid Glass Karten */
+    .glass {
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(18px) saturate(140%);
+      -webkit-backdrop-filter: blur(18px) saturate(140%);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.7);
+    }
+    .glass-strong {
+      background: rgba(255, 255, 255, 0.09);
+      backdrop-filter: blur(24px) saturate(150%);
+      -webkit-backdrop-filter: blur(24px) saturate(150%);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    /* Metallischer Text-/Rand-Akzent */
+    .metallic {
+      background: linear-gradient(135deg, #ffffff 0%, #C7CEDB 40%, #9AA4B2 70%, #5B6472 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .ring-metallic { box-shadow: inset 0 0 0 1px rgba(199,206,219,0.25); }
+
+    /* Hintergrund-Glow */
+    .glow::before {
+      content: "";
+      position: absolute;
+      inset: -20% -10% auto -10%;
+      height: 70%;
+      background: radial-gradient(closest-side, rgba(91,100,114,0.35), transparent 70%);
+      filter: blur(40px);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* iPhone-Rahmen */
+    .iphone {
+      position: relative;
+      border-radius: 44px;
+      background: linear-gradient(160deg, #2a2f3a, #0c0e12);
+      padding: 12px;
+      box-shadow: 0 40px 80px -30px rgba(0,0,0,0.85), inset 0 0 0 1px rgba(255,255,255,0.08);
+    }
+    .iphone-screen {
+      border-radius: 34px;
+      overflow: hidden;
+      background: linear-gradient(180deg, #14181F, #000);
+      position: relative;
+    }
+    .iphone-notch {
+      position: absolute;
+      top: 10px; left: 50%; transform: translateX(-50%);
+      width: 42%; height: 26px;
+      background: #000; border-radius: 999px;
+      z-index: 5;
+    }
+
+    /* Scroll-Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+      will-change: opacity, transform;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* Sanftes Schweben fürs Hero-Mockup */
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+    .floaty { animation: float 6s ease-in-out infinite; }
+
+    /* Fokus-States (Barrierefreiheit) */
+    a:focus-visible, button:focus-visible, summary:focus-visible {
+      outline: 2px solid #C7CEDB;
+      outline-offset: 3px;
+      border-radius: 8px;
+    }
+
+    /* FAQ Accordion */
+    details > summary { list-style: none; cursor: pointer; }
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] .faq-icon { transform: rotate(45deg); }
+    .faq-icon { transition: transform 0.3s ease; }
+
+    /* Reduced Motion respektieren */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+      .floaty { animation: none; }
+      * { scroll-behavior: auto !important; }
+    }
+
+    /* Feine Scrollbar */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-thumb { background: #2a2f3a; border-radius: 999px; }
+  </style>
+</head>
+
+<body class="font-sans text-silver antialiased selection:bg-slate2/40">
+
+  <!-- Skip-Link (Barrierefreiheit) -->
+  <a href="#hero" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:glass focus:px-4 focus:py-2 focus:rounded-xl focus:text-white" data-i18n="skip">Zum Inhalt springen</a>
+
+  <!-- ============================================================= -->
+  <!-- 1) STICKY HEADER                                              -->
+  <!-- ============================================================= -->
+  <header class="fixed top-0 inset-x-0 z-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <nav class="mt-3 glass rounded-2xl px-4 sm:px-5 py-3 flex items-center justify-between" aria-label="Hauptnavigation">
+        <!-- Logo -->
+        <a href="#hero" class="flex items-center gap-2.5 shrink-0" aria-label="Blade Startseite">
+          <span class="inline-flex" aria-hidden="true">
+            <svg width="34" height="34" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="blade-b" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#ffffff"/><stop offset="0.45" stop-color="#C7CEDB"/>
+                  <stop offset="0.8" stop-color="#9AA4B2"/><stop offset="1" stop-color="#5B6472"/>
+                </linearGradient>
+                <linearGradient id="blade-bg" x1="0" y1="0" x2="0" y2="64" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#191921"/><stop offset="1" stop-color="#000000"/>
+                </linearGradient>
+              </defs>
+              <rect width="64" height="64" rx="16" fill="url(#blade-bg)"/>
+              <rect x="0.5" y="0.5" width="63" height="63" rx="15.5" stroke="#ffffff" stroke-opacity="0.12"/>
+              <path d="M22 15h12.5a11.5 11.5 0 0 1 3.2 22.1A11.5 11.5 0 0 1 34.5 49H22z" fill="url(#blade-b)"/>
+              <path d="M31 21.5l9.5 6.5-9.5 6.5zM31 36l9.5 6.5-9.5 6.5z" fill="url(#blade-bg)"/>
+            </svg>
+          </span>
+          <span class="text-white font-extrabold text-lg tracking-tight">Blade</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden lg:flex items-center gap-7 text-sm font-medium text-steel">
+          <a href="#features" class="hover:text-white transition" data-i18n="nav.features">Features</a>
+          <a href="#how" class="hover:text-white transition" data-i18n="nav.how">So funktioniert's</a>
+          <a href="#privacy" class="hover:text-white transition" data-i18n="nav.privacy">Datenschutz</a>
+          <a href="#pricing" class="hover:text-white transition" data-i18n="nav.pricing">Preise</a>
+          <a href="#faq" class="hover:text-white transition" data-i18n="nav.faq">FAQ</a>
+        </div>
+
+        <!-- Rechts: Sprach-Umschalter + CTA + Mobile-Toggle -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <!-- Sprach-Umschalter -->
+          <div class="glass-strong rounded-full p-0.5 flex text-xs font-semibold" role="group" aria-label="Sprache wählen">
+            <button data-lang="de" class="lang-btn px-2.5 py-1 rounded-full text-white bg-white/10" aria-pressed="true">DE</button>
+            <button data-lang="en" class="lang-btn px-2.5 py-1 rounded-full text-steel" aria-pressed="false">EN</button>
+          </div>
+          <a href="#cta" class="hidden sm:inline-flex items-center rounded-full bg-silver px-4 py-2 text-sm font-semibold text-ink hover:bg-white transition ring-metallic" data-i18n="nav.cta">Jetzt testen</a>
+          <!-- Mobile Menu Button -->
+          <button id="menu-btn" class="lg:hidden glass-strong rounded-xl p-2 text-white" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="lg:hidden hidden mt-2 glass rounded-2xl p-4 text-sm font-medium text-steel">
+        <div class="flex flex-col gap-1">
+          <a href="#features" class="menu-link px-3 py-2.5 rounded-xl hover:bg-white/5 hover:text-white transition" data-i18n="nav.features">Features</a>
+          <a href="#how" class="menu-link px-3 py-2.5 rounded-xl hover:bg-white/5 hover:text-white transition" data-i18n="nav.how">So funktioniert's</a>
+          <a href="#privacy" class="menu-link px-3 py-2.5 rounded-xl hover:bg-white/5 hover:text-white transition" data-i18n="nav.privacy">Datenschutz</a>
+          <a href="#pricing" class="menu-link px-3 py-2.5 rounded-xl hover:bg-white/5 hover:text-white transition" data-i18n="nav.pricing">Preise</a>
+          <a href="#faq" class="menu-link px-3 py-2.5 rounded-xl hover:bg-white/5 hover:text-white transition" data-i18n="nav.faq">FAQ</a>
+          <a href="#cta" class="menu-link mt-2 text-center rounded-full bg-silver px-4 py-2.5 font-semibold text-ink" data-i18n="nav.cta">Jetzt testen</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================================================= -->
+    <!-- 2) HERO                                                       -->
+    <!-- ============================================================= -->
+    <section id="hero" class="relative overflow-hidden pt-32 sm:pt-40 pb-16 sm:pb-24">
+      <div class="glow absolute inset-0" aria-hidden="true"></div>
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+
+          <!-- Text -->
+          <div class="reveal">
+            <span class="inline-flex items-center gap-2 glass rounded-full px-3.5 py-1.5 text-xs font-semibold text-silver mb-6">
+              <span class="w-1.5 h-1.5 rounded-full bg-silver"></span>
+              <span data-i18n="hero.badge">Slay your subscriptions</span>
+            </span>
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-[1.05]">
+              <span data-i18n="hero.h1a">Behalte deine Abos im Griff.</span>
+              <span class="metallic" data-i18n="hero.h1b">Slay sie.</span>
+            </h1>
+            <p class="mt-6 text-lg text-steel max-w-xl leading-relaxed" data-i18n="hero.sub">
+              Blade erkennt deine Abos automatisch per KI – direkt aus deinem Postfach, komplett on-device. Behalte Kosten und Kündigungstermine im Blick und spare bares Geld.
+            </p>
+
+            <!-- CTAs -->
+            <div class="mt-8 flex flex-col sm:flex-row gap-3">
+              <a href="#cta" class="group inline-flex items-center justify-center gap-2.5 rounded-2xl bg-black/60 glass-strong px-5 py-3.5 text-white font-semibold hover:bg-black/80 transition">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.365 1.43c.02 1.2-.42 2.36-1.18 3.2-.79.86-2.07 1.53-3.3 1.43-.14-1.16.44-2.38 1.16-3.16.8-.87 2.18-1.52 3.32-1.47ZM20.5 17.2c-.6 1.38-.88 1.99-1.66 3.2-1.08 1.7-2.6 3.82-4.49 3.83-1.67.02-2.1-1.09-4.36-1.08-2.26.01-2.74 1.1-4.41 1.08-1.89-.02-3.33-1.93-4.41-3.63-3.03-4.79-3.35-10.4-1.48-13.4C.72 3.2 2.9 1.9 4.94 1.9c2.08 0 3.39 1.14 5.11 1.14 1.67 0 2.69-1.14 5.1-1.14 1.83 0 3.77.99 5.15 2.7-4.53 2.48-3.79 8.94.2 10.6Z"/></svg>
+                <span class="text-left leading-tight">
+                  <span class="block text-[10px] font-normal text-steel" data-i18n="hero.store1small">Laden im</span>
+                  App Store
+                </span>
+              </a>
+              <a href="#cta" class="group inline-flex items-center justify-center gap-2.5 rounded-2xl bg-black/60 glass-strong px-5 py-3.5 text-white font-semibold hover:bg-black/80 transition">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2 13.3 12 3.6 21.8c-.3-.2-.5-.6-.5-1.1V3.3c0-.5.2-.9.5-1.1Zm11.1 8.5 2.5-2.5 3.4 1.9c.8.5.8 1.6 0 2.1l-3.4 1.9-2.5-2.4-.9-.5.9-.5Zm-1.4 1.3L5.1 4l9.6 5.4-1.4 1.3v1.6l1.4 1.3L5.1 20l8.2-8Z"/></svg>
+                <span class="text-left leading-tight">
+                  <span class="block text-[10px] font-normal text-steel" data-i18n="hero.store2small">Jetzt bei</span>
+                  Google Play
+                </span>
+              </a>
+            </div>
+            <p class="mt-3 text-xs text-slate2" data-i18n="hero.soon">Bald verfügbar · Sei von Anfang an dabei</p>
+          </div>
+
+          <!-- iPhone Mockup -->
+          <div class="reveal flex justify-center lg:justify-end">
+            <div class="floaty w-[270px] sm:w-[300px]">
+              <div class="iphone">
+                <div class="iphone-screen aspect-[9/19.5]">
+                  <div class="iphone-notch"></div>
+                  <!-- Dummy App-Dashboard -->
+                  <div class="h-full w-full p-4 pt-10 flex flex-col gap-3 text-left">
+                    <div class="flex items-center justify-between">
+                      <div>
+                        <p class="text-[10px] text-steel" data-i18n="mock.hello">Guten Abend</p>
+                        <p class="text-white font-bold text-sm" data-i18n="mock.overview">Deine Übersicht</p>
+                      </div>
+                      <div class="w-8 h-8 rounded-full glass-strong"></div>
+                    </div>
+                    <!-- Kostenkarte -->
+                    <div class="glass-strong rounded-2xl p-4">
+                      <p class="text-[10px] text-steel" data-i18n="mock.monthly">Monatliche Kosten</p>
+                      <p class="text-white text-2xl font-extrabold mt-1">€ 87,40</p>
+                      <div class="mt-3 h-1.5 rounded-full bg-white/10 overflow-hidden">
+                        <div class="h-full w-2/3 bg-gradient-to-r from-silver to-slate2"></div>
+                      </div>
+                      <p class="text-[10px] text-slate2 mt-2" data-i18n="mock.year">€ 1.048,80 / Jahr</p>
+                    </div>
+                    <!-- Abo-Liste -->
+                    <div class="glass rounded-2xl p-3 flex items-center gap-3">
+                      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-red-500/70 to-red-800/70"></div>
+                      <div class="flex-1"><p class="text-white text-xs font-semibold">Netflix</p><p class="text-[10px] text-steel">UHD · monatlich</p></div>
+                      <p class="text-white text-xs font-bold">€ 19,99</p>
+                    </div>
+                    <div class="glass rounded-2xl p-3 flex items-center gap-3">
+                      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-green-500/70 to-green-800/70"></div>
+                      <div class="flex-1"><p class="text-white text-xs font-semibold">Spotify</p><p class="text-[10px] text-steel">Premium · monatlich</p></div>
+                      <p class="text-white text-xs font-bold">€ 10,99</p>
+                    </div>
+                    <div class="glass rounded-2xl p-3 flex items-center gap-3">
+                      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500/70 to-indigo-900/70"></div>
+                      <div class="flex-1"><p class="text-white text-xs font-semibold">Disney+</p><p class="text-[10px] text-amber-300/80" data-i18n="mock.cancel">Kündigt in 3 Tagen</p></div>
+                      <p class="text-white text-xs font-bold">€ 8,99</p>
+                    </div>
+                    <div class="mt-auto glass-strong rounded-2xl p-3 text-center">
+                      <p class="text-[11px] font-semibold text-white" data-i18n="mock.slay">⚔️ 3 Abos zum Slayen</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- 3) VERTRAUENS-/KURZNUTZEN-ZEILE                               -->
+    <!-- ============================================================= -->
+    <section class="py-6 sm:py-10">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="reveal glass rounded-3xl p-6 sm:p-8 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+          <div>
+            <p class="text-2xl sm:text-3xl font-extrabold metallic">On-device</p>
+            <p class="mt-1 text-xs sm:text-sm text-steel" data-i18n="trust.1">Scan läuft lokal auf dem Gerät</p>
+          </div>
+          <div>
+            <p class="text-2xl sm:text-3xl font-extrabold metallic">14</p>
+            <p class="mt-1 text-xs sm:text-sm text-steel" data-i18n="trust.2">Sprachen weltweit</p>
+          </div>
+          <div>
+            <p class="text-2xl sm:text-3xl font-extrabold metallic" data-i18n="trust.3num">Alle</p>
+            <p class="mt-1 text-xs sm:text-sm text-steel" data-i18n="trust.3">Postfächer: Gmail & IMAP</p>
+          </div>
+          <div>
+            <p class="text-2xl sm:text-3xl font-extrabold metallic">DSGVO</p>
+            <p class="mt-1 text-xs sm:text-sm text-steel" data-i18n="trust.4">konform & datensparsam</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- 4) FEATURE-SEKTIONEN                                          -->
+    <!-- ============================================================= -->
+    <section id="features" class="py-16 sm:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="reveal max-w-2xl mb-14">
+          <p class="text-sm font-semibold text-slate2 uppercase tracking-widest" data-i18n="features.eyebrow">Features</p>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-white tracking-tight" data-i18n="features.h2">Alles, um deine Abos zu beherrschen</h2>
+          <p class="mt-4 text-steel text-lg" data-i18n="features.sub">Von der automatischen Erkennung bis zur Kündigung mit einem Tap – Blade nimmt dir die Arbeit ab.</p>
+        </div>
+
+        <!-- Feature 1: Tiefenscan (Text links / Mockup rechts) -->
+        <div class="reveal grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-24">
+          <div>
+            <span class="inline-flex glass rounded-xl px-3 py-1.5 text-xs font-semibold text-silver mb-5">🔍 <span class="ml-1.5" data-i18n="f1.tag">Tiefenscan</span></span>
+            <h3 class="text-2xl sm:text-3xl font-bold text-white" data-i18n="f1.h">Abos automatisch erkennen – per KI</h3>
+            <p class="mt-4 text-steel leading-relaxed" data-i18n="f1.p">Blade durchsucht dein E-Mail-Postfach – Gmail und IMAP (iCloud, Yahoo, GMX, Web.de, T-Online u. a.) – und erkennt Abos automatisch. Die KI läuft komplett <strong class="text-white">on-device</strong>: Nichts wird auf Servern gespeichert. In 14 Sprachen.</p>
+            <ul class="mt-6 space-y-3 text-sm text-steel">
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="f1.l1">Gmail & alle gängigen IMAP-Postfächer</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="f1.l2">KI-Erkennung ohne Cloud-Upload</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="f1.l3">Findet auch vergessene & versteckte Abos</span></li>
+            </ul>
+          </div>
+          <div class="flex justify-center">
+            <div class="glass rounded-3xl p-6 w-full max-w-sm">
+              <div class="flex items-center gap-2 mb-4"><div class="w-2 h-2 rounded-full bg-slate2"></div><div class="w-2 h-2 rounded-full bg-slate2"></div><div class="w-2 h-2 rounded-full bg-slate2"></div></div>
+              <div class="space-y-3">
+                <div class="glass-strong rounded-2xl p-4 flex items-center justify-between"><span class="text-xs text-steel" data-i18n="f1.m1">Postfach wird gescannt…</span><span class="text-xs text-silver font-bold">72%</span></div>
+                <div class="h-2 rounded-full bg-white/10 overflow-hidden"><div class="h-full w-[72%] bg-gradient-to-r from-silver to-slate2"></div></div>
+                <div class="glass rounded-xl p-3 flex items-center gap-3"><div class="w-7 h-7 rounded-lg bg-red-600/60"></div><span class="text-xs text-white flex-1">Netflix</span><span class="text-[10px] text-green-300" data-i18n="f1.found">erkannt</span></div>
+                <div class="glass rounded-xl p-3 flex items-center gap-3"><div class="w-7 h-7 rounded-lg bg-green-600/60"></div><span class="text-xs text-white flex-1">Spotify</span><span class="text-[10px] text-green-300" data-i18n="f1.found">erkannt</span></div>
+                <div class="glass rounded-xl p-3 flex items-center gap-3"><div class="w-7 h-7 rounded-lg bg-sky-600/60"></div><span class="text-xs text-white flex-1">Dropbox</span><span class="text-[10px] text-green-300" data-i18n="f1.found">erkannt</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 2: Inbox Slayer (Mockup links / Text rechts) -->
+        <div class="reveal grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-24">
+          <div class="order-2 lg:order-1 flex justify-center">
+            <div class="glass rounded-3xl p-6 w-full max-w-sm">
+              <p class="text-xs text-steel mb-3" data-i18n="f2.m1">Newsletter & Spam</p>
+              <div class="space-y-3">
+                <div class="glass-strong rounded-2xl p-4 flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-slate2/60"></div><div class="flex-1"><p class="text-xs text-white font-semibold">Daily Deals</p><p class="text-[10px] text-steel">14 Mails / Woche</p></div><button class="text-[10px] font-bold text-red-300 glass rounded-full px-2.5 py-1" data-i18n="f2.unsub">Abbestellen</button></div>
+                <div class="glass-strong rounded-2xl p-4 flex items-center gap-3 opacity-50 line-through"><div class="w-8 h-8 rounded-lg bg-slate2/40"></div><div class="flex-1"><p class="text-xs text-white font-semibold">Shopping News</p></div><span class="text-[10px] text-green-300" data-i18n="f2.done">✓ Weg</span></div>
+                <div class="glass-strong rounded-2xl p-4 flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-slate2/60"></div><div class="flex-1"><p class="text-xs text-white font-semibold">Promo Blast</p><p class="text-[10px] text-steel">9 Mails / Woche</p></div><button class="text-[10px] font-bold text-red-300 glass rounded-full px-2.5 py-1" data-i18n="f2.unsub">Abbestellen</button></div>
+              </div>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2">
+            <span class="inline-flex glass rounded-xl px-3 py-1.5 text-xs font-semibold text-silver mb-5">🧹 <span class="ml-1.5" data-i18n="f2.tag">Inbox Slayer</span></span>
+            <h3 class="text-2xl sm:text-3xl font-bold text-white" data-i18n="f2.h">Newsletter & Spam mit einem Wisch los</h3>
+            <p class="mt-4 text-steel leading-relaxed" data-i18n="f2.p">Blade erkennt Newsletter und Spam in deinem Postfach und lässt dich mit einem einzigen Wisch abbestellen. Weniger Lärm, mehr Überblick.</p>
+            <ul class="mt-6 space-y-3 text-sm text-steel">
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="f2.l1">Ein-Wisch-Abbestellung</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="f2.l2">Erkennt aufdringliche Absender automatisch</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Feature 3: KI-Mail-Import (Text links / Mockup rechts) -->
+        <div class="reveal grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-24">
+          <div>
+            <span class="inline-flex glass rounded-xl px-3 py-1.5 text-xs font-semibold text-silver mb-5">✨ <span class="ml-1.5" data-i18n="f3.tag">KI-Mail-Import</span></span>
+            <h3 class="text-2xl sm:text-3xl font-bold text-white" data-i18n="f3.h">E-Mail einfügen, fertig</h3>
+            <p class="mt-4 text-steel leading-relaxed" data-i18n="f3.p">Du hast eine Bestätigungs-Mail? Einfach einfügen – die KI liest Anbieter, Preis und Intervall automatisch aus und trägt das Abo für dich ein. Kein Tippen.</p>
+            <ul class="mt-6 space-y-3 text-sm text-steel">
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="f3.l1">Automatisches Auslesen von Preis & Laufzeit</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="f3.l2">Manuell eintragen inkl. Tarif-Auswahl (Netflix HD/UHD, Spotify, Disney+ …)</span></li>
+            </ul>
+          </div>
+          <div class="flex justify-center">
+            <div class="glass rounded-3xl p-6 w-full max-w-sm">
+              <div class="glass-strong rounded-2xl p-4 text-[11px] text-steel leading-relaxed font-mono">
+                <p class="text-slate2" data-i18n="f3.mfrom">Von: billing@netflix.com</p>
+                <p class="mt-2 text-white/80">"Ihr Abo <span class="text-silver">Netflix Premium (UHD)</span> wurde verlängert. Betrag: <span class="text-silver">€ 19,99</span>/Monat."</p>
+              </div>
+              <div class="mt-4 flex items-center gap-2 text-xs text-silver"><span class="animate-pulse">✨</span> <span data-i18n="f3.parsing">KI liest aus…</span></div>
+              <div class="mt-3 glass rounded-2xl p-4 flex items-center gap-3"><div class="w-9 h-9 rounded-lg bg-red-600/60"></div><div class="flex-1"><p class="text-sm text-white font-semibold">Netflix</p><p class="text-[10px] text-steel">Premium UHD · monatlich</p></div><p class="text-sm text-white font-bold">€ 19,99</p></div>
+              <button class="mt-3 w-full rounded-xl bg-silver text-ink text-xs font-bold py-2.5" data-i18n="f3.add">Abo hinzufügen</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 4: Kündigen & Reaktivieren (Mockup links / Text rechts) -->
+        <div class="reveal grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-24">
+          <div class="order-2 lg:order-1 flex justify-center">
+            <div class="glass rounded-3xl p-6 w-full max-w-sm space-y-3">
+              <div class="glass-strong rounded-2xl p-4 flex items-center gap-3"><div class="w-9 h-9 rounded-lg bg-indigo-600/60"></div><div class="flex-1"><p class="text-sm text-white font-semibold">Disney+</p><p class="text-[10px] text-amber-300/80" data-i18n="f4.due">Frist: in 3 Tagen</p></div></div>
+              <a href="#cta" class="block text-center rounded-xl bg-silver text-ink text-xs font-bold py-2.5" data-i18n="f4.cancelbtn">Direkt kündigen →</a>
+              <div class="glass rounded-2xl p-4 flex items-center gap-3 opacity-70"><div class="w-9 h-9 rounded-lg bg-slate2/50"></div><div class="flex-1"><p class="text-sm text-white font-semibold line-through">Audible</p><p class="text-[10px] text-steel" data-i18n="f4.deleted">Gelöscht · 24 h reaktivierbar</p></div><button class="text-[10px] font-bold text-silver glass rounded-full px-2.5 py-1" data-i18n="f4.reactivate">Zurück</button></div>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2">
+            <span class="inline-flex glass rounded-xl px-3 py-1.5 text-xs font-semibold text-silver mb-5">⚔️ <span class="ml-1.5" data-i18n="f4.tag">Kündigen & Reaktivieren</span></span>
+            <h3 class="text-2xl sm:text-3xl font-bold text-white" data-i18n="f4.h">Kündigen leicht gemacht</h3>
+            <p class="mt-4 text-steel leading-relaxed" data-i18n="f4.p">Direktlinks führen dich sofort zur Kündigungsseite des Anbieters. Und falls du ein Abo versehentlich löschst, ist es <strong class="text-white">24 Stunden reaktivierbar</strong>.</p>
+            <ul class="mt-6 space-y-3 text-sm text-steel">
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="f4.l1">Direktlinks zu den Anbietern</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="f4.l2">24-Stunden-Reaktivierung als Sicherheitsnetz</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Feature 5: Übersicht/Dashboard (Text links / Mockup rechts) -->
+        <div class="reveal grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-24">
+          <div>
+            <span class="inline-flex glass rounded-xl px-3 py-1.5 text-xs font-semibold text-silver mb-5">📊 <span class="ml-1.5" data-i18n="f5.tag">Übersicht</span></span>
+            <h3 class="text-2xl sm:text-3xl font-bold text-white" data-i18n="f5.h">Ein ruhiges Dashboard für alles</h3>
+            <p class="mt-4 text-steel leading-relaxed" data-i18n="f5.p">Monats- und Jahreskosten, nach Kategorien sortiert. Blade zeigt dir klar, wohin dein Geld fließt – ohne visuelles Rauschen.</p>
+            <ul class="mt-6 space-y-3 text-sm text-steel">
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="f5.l1">Monats- & Jahreskosten auf einen Blick</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="f5.l2">Kategorien & viele Währungen</span></li>
+            </ul>
+          </div>
+          <div class="flex justify-center">
+            <div class="glass rounded-3xl p-6 w-full max-w-sm">
+              <p class="text-xs text-steel" data-i18n="f5.m1">Jahresausgaben</p>
+              <p class="text-white text-3xl font-extrabold mt-1">€ 1.048,80</p>
+              <div class="mt-5 grid grid-cols-3 gap-2 items-end h-28">
+                <div class="bg-gradient-to-t from-slate2 to-silver rounded-lg h-[60%]"></div>
+                <div class="bg-gradient-to-t from-slate2 to-silver rounded-lg h-[85%]"></div>
+                <div class="bg-gradient-to-t from-slate2 to-silver rounded-lg h-[45%]"></div>
+              </div>
+              <div class="mt-4 flex justify-between text-[10px] text-steel"><span data-i18n="f5.cat1">Streaming</span><span data-i18n="f5.cat2">Software</span><span data-i18n="f5.cat3">Fitness</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 6: Haushalt teilen (Mockup links / Text rechts) -->
+        <div class="reveal grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div class="order-2 lg:order-1 flex justify-center">
+            <div class="glass rounded-3xl p-6 w-full max-w-sm">
+              <p class="text-xs text-steel mb-4" data-i18n="f6.m1">Haushalt „Familie Blade"</p>
+              <div class="flex -space-x-2 mb-4">
+                <div class="w-9 h-9 rounded-full bg-gradient-to-br from-silver to-slate2 ring-2 ring-black"></div>
+                <div class="w-9 h-9 rounded-full bg-gradient-to-br from-steel to-slate2 ring-2 ring-black"></div>
+                <div class="w-9 h-9 rounded-full bg-gradient-to-br from-slate2 to-base2 ring-2 ring-black"></div>
+                <div class="w-9 h-9 rounded-full glass-strong ring-2 ring-black flex items-center justify-center text-xs text-white">+2</div>
+              </div>
+              <div class="space-y-3">
+                <div class="glass-strong rounded-2xl p-3 flex items-center gap-3"><div class="w-7 h-7 rounded-lg bg-red-600/60"></div><span class="text-xs text-white flex-1">Netflix</span><span class="text-[10px] text-steel" data-i18n="f6.shared">geteilt · 4 Personen</span></div>
+                <div class="glass-strong rounded-2xl p-3 flex items-center gap-3"><div class="w-7 h-7 rounded-lg bg-green-600/60"></div><span class="text-xs text-white flex-1">Spotify Family</span><span class="text-[10px] text-steel" data-i18n="f6.shared">geteilt · 5 Personen</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2">
+            <span class="inline-flex glass rounded-xl px-3 py-1.5 text-xs font-semibold text-silver mb-5">👨‍👩‍👧 <span class="ml-1.5" data-i18n="f6.tag">Haushalt teilen</span></span>
+            <h3 class="text-2xl sm:text-3xl font-bold text-white" data-i18n="f6.h">Abos gemeinsam verwalten</h3>
+            <p class="mt-4 text-steel leading-relaxed" data-i18n="f6.p">Teile Abos mit Familie oder WG. Jeder sieht, was läuft und was es kostet – transparent und fair aufgeteilt.</p>
+            <ul class="mt-6 space-y-3 text-sm text-steel">
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="f6.l1">Gemeinsamer Haushalt für Familie & WG</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="f6.l2">Anmeldung mit E-Mail/Passwort oder Google</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- 5) SO FUNKTIONIERT'S                                          -->
+    <!-- ============================================================= -->
+    <section id="how" class="py-16 sm:py-24 relative overflow-hidden">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="reveal max-w-2xl mb-14">
+          <p class="text-sm font-semibold text-slate2 uppercase tracking-widest" data-i18n="how.eyebrow">So funktioniert's</p>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-white tracking-tight" data-i18n="how.h2">In drei Schritten zum Überblick</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="reveal glass rounded-3xl p-7">
+            <div class="w-11 h-11 rounded-2xl glass-strong flex items-center justify-center text-silver font-extrabold text-lg mb-5">1</div>
+            <h3 class="text-lg font-bold text-white" data-i18n="how.s1h">Postfach verbinden</h3>
+            <p class="mt-2 text-sm text-steel leading-relaxed" data-i18n="how.s1p">Verbinde Gmail oder ein IMAP-Postfach (iCloud, GMX, Web.de …). Sicher und in Sekunden.</p>
+          </div>
+          <div class="reveal glass rounded-3xl p-7">
+            <div class="w-11 h-11 rounded-2xl glass-strong flex items-center justify-center text-silver font-extrabold text-lg mb-5">2</div>
+            <h3 class="text-lg font-bold text-white" data-i18n="how.s2h">KI erkennt Abos</h3>
+            <p class="mt-2 text-sm text-steel leading-relaxed" data-i18n="how.s2p">Der on-device Tiefenscan findet alle Abos automatisch – ohne dass Daten dein Gerät verlassen.</p>
+          </div>
+          <div class="reveal glass rounded-3xl p-7">
+            <div class="w-11 h-11 rounded-2xl glass-strong flex items-center justify-center text-silver font-extrabold text-lg mb-5">3</div>
+            <h3 class="text-lg font-bold text-white" data-i18n="how.s3h">Sparen & slayen</h3>
+            <p class="mt-2 text-sm text-steel leading-relaxed" data-i18n="how.s3p">Behalte Termine im Blick, kündige Unnötiges mit einem Tap und spare jeden Monat.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- 6) DATENSCHUTZ                                                -->
+    <!-- ============================================================= -->
+    <section id="privacy" class="py-16 sm:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="reveal glass-strong rounded-3xl p-8 sm:p-14 relative overflow-hidden">
+          <div class="glow absolute inset-0" aria-hidden="true"></div>
+          <div class="grid lg:grid-cols-2 gap-10 items-center relative">
+            <div>
+              <span class="inline-flex glass rounded-xl px-3 py-1.5 text-xs font-semibold text-silver mb-5">🔒 <span class="ml-1.5" data-i18n="privacy.tag">Datenschutz</span></span>
+              <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight" data-i18n="privacy.h2">Deine Daten bleiben bei dir</h2>
+              <p class="mt-4 text-steel text-lg leading-relaxed" data-i18n="privacy.p">Der E-Mail-Scan läuft <strong class="text-white">komplett on-device</strong>. Blade speichert nichts auf Servern und gibt nichts weiter. Datensparsam und DSGVO-konform – Datenschutz ist bei uns kein Feature, sondern Grundprinzip.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="glass rounded-2xl p-5"><p class="text-2xl mb-2">📱</p><p class="text-white font-semibold text-sm" data-i18n="privacy.c1h">On-device</p><p class="text-xs text-steel mt-1" data-i18n="privacy.c1p">Analyse passiert lokal auf deinem Gerät.</p></div>
+              <div class="glass rounded-2xl p-5"><p class="text-2xl mb-2">🚫</p><p class="text-white font-semibold text-sm" data-i18n="privacy.c2h">Keine Server-Speicherung</p><p class="text-xs text-steel mt-1" data-i18n="privacy.c2p">Deine E-Mails landen nie in einer Cloud.</p></div>
+              <div class="glass rounded-2xl p-5"><p class="text-2xl mb-2">🇪🇺</p><p class="text-white font-semibold text-sm" data-i18n="privacy.c3h">DSGVO-konform</p><p class="text-xs text-steel mt-1" data-i18n="privacy.c3p">Nach europäischen Standards gebaut.</p></div>
+              <div class="glass rounded-2xl p-5"><p class="text-2xl mb-2">🤝</p><p class="text-white font-semibold text-sm" data-i18n="privacy.c4h">Keine Weitergabe</p><p class="text-xs text-steel mt-1" data-i18n="privacy.c4p">Keine Werbung, kein Datenverkauf.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- 7) PREISE / PRO                                               -->
+    <!-- ============================================================= -->
+    <section id="pricing" class="py-16 sm:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="reveal max-w-2xl mb-14">
+          <p class="text-sm font-semibold text-slate2 uppercase tracking-widest" data-i18n="pricing.eyebrow">Preise</p>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-white tracking-tight" data-i18n="pricing.h2">Starte kostenlos. Werde Pro.</h2>
+          <p class="mt-4 text-steel text-lg" data-i18n="pricing.sub">Alle Kernfunktionen gratis. Für den vollen Slay upgraden.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 max-w-4xl">
+          <!-- Free -->
+          <div class="reveal glass rounded-3xl p-8">
+            <p class="text-sm font-semibold text-steel" data-i18n="pricing.free">Free</p>
+            <p class="mt-3 text-4xl font-extrabold text-white">€ 0</p>
+            <p class="text-xs text-slate2 mt-1" data-i18n="pricing.freesub">für immer</p>
+            <ul class="mt-7 space-y-3 text-sm text-steel">
+              <li class="flex items-start gap-3"><span class="text-silver">✓</span> <span data-i18n="pricing.f1">Manuelles Eintragen von Abos</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver">✓</span> <span data-i18n="pricing.f2">Übersicht & Kosten-Dashboard</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver">✓</span> <span data-i18n="pricing.f3">Kündigungserinnerungen</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver">✓</span> <span data-i18n="pricing.f4">1 Postfach</span></li>
+            </ul>
+            <a href="#cta" class="mt-8 block text-center rounded-2xl glass-strong px-5 py-3 text-white font-semibold hover:bg-white/10 transition" data-i18n="pricing.freecta">Kostenlos starten</a>
+          </div>
+
+          <!-- Pro -->
+          <div class="reveal glass-strong rounded-3xl p-8 relative ring-metallic">
+            <span class="absolute top-6 right-6 text-[10px] font-bold uppercase tracking-wider glass rounded-full px-3 py-1 text-silver" data-i18n="pricing.popular">Beliebt</span>
+            <p class="text-sm font-semibold metallic inline-block" data-i18n="pricing.pro">Blade Pro</p>
+            <p class="mt-3 text-4xl font-extrabold text-white">€ 3,99<span class="text-base font-medium text-steel" data-i18n="pricing.month">/Monat</span></p>
+            <p class="text-xs text-slate2 mt-1" data-i18n="pricing.prosub">jederzeit kündbar</p>
+            <ul class="mt-7 space-y-3 text-sm text-steel">
+              <li class="flex items-start gap-3"><span class="text-silver">✓</span> <span class="text-white" data-i18n="pricing.p1">Alles aus Free, plus:</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver">✓</span> <span data-i18n="pricing.p2">KI-Tiefenscan & KI-Mail-Import</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver">✓</span> <span data-i18n="pricing.p3">Inbox Slayer (unbegrenzt)</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver">✓</span> <span data-i18n="pricing.p4">Mehrere Postfächer & Haushalt teilen</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver">✓</span> <span data-i18n="pricing.p5">Direktlinks & 24-h-Reaktivierung</span></li>
+            </ul>
+            <a href="#cta" class="mt-8 block text-center rounded-2xl bg-silver px-5 py-3 text-ink font-bold hover:bg-white transition" data-i18n="pricing.procta">Pro holen</a>
+          </div>
+        </div>
+        <p class="mt-4 text-xs text-slate2" data-i18n="pricing.note">* Platzhalter-Preise. Endgültige Tarife folgen zum Launch.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- 8) FAQ                                                        -->
+    <!-- ============================================================= -->
+    <section id="faq" class="py-16 sm:py-24">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6">
+        <div class="reveal text-center mb-12">
+          <p class="text-sm font-semibold text-slate2 uppercase tracking-widest" data-i18n="faq.eyebrow">FAQ</p>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-white tracking-tight" data-i18n="faq.h2">Häufige Fragen</h2>
+        </div>
+
+        <div class="space-y-3">
+          <details class="reveal glass rounded-2xl p-5 group">
+            <summary class="flex items-center justify-between gap-4 text-white font-semibold">
+              <span data-i18n="faq.q1">Ist der E-Mail-Scan sicher?</span>
+              <span class="faq-icon text-silver text-xl leading-none">+</span>
+            </summary>
+            <p class="mt-4 text-sm text-steel leading-relaxed" data-i18n="faq.a1">Ja. Der Tiefenscan läuft komplett on-device – deine E-Mails werden lokal analysiert und niemals auf Servern gespeichert oder weitergegeben. Blade ist DSGVO-konform.</p>
+          </details>
+          <details class="reveal glass rounded-2xl p-5 group">
+            <summary class="flex items-center justify-between gap-4 text-white font-semibold">
+              <span data-i18n="faq.q2">Welche Anbieter & Postfächer werden unterstützt?</span>
+              <span class="faq-icon text-silver text-xl leading-none">+</span>
+            </summary>
+            <p class="mt-4 text-sm text-steel leading-relaxed" data-i18n="faq.a2">Gmail sowie alle gängigen IMAP-Postfächer wie iCloud, Yahoo, GMX, Web.de und T-Online. Erkannt werden Streaming-, Software-, Fitness- und viele weitere Abos.</p>
+          </details>
+          <details class="reveal glass rounded-2xl p-5 group">
+            <summary class="flex items-center justify-between gap-4 text-white font-semibold">
+              <span data-i18n="faq.q3">Wie funktioniert das Kündigen?</span>
+              <span class="faq-icon text-silver text-xl leading-none">+</span>
+            </summary>
+            <p class="mt-4 text-sm text-steel leading-relaxed" data-i18n="faq.a3">Blade liefert Direktlinks zur Kündigungsseite des jeweiligen Anbieters. Versehentlich gelöschte Abos kannst du innerhalb von 24 Stunden wiederherstellen.</p>
+          </details>
+          <details class="reveal glass rounded-2xl p-5 group">
+            <summary class="flex items-center justify-between gap-4 text-white font-semibold">
+              <span data-i18n="faq.q4">Welche Sprachen & Währungen werden unterstützt?</span>
+              <span class="faq-icon text-silver text-xl leading-none">+</span>
+            </summary>
+            <p class="mt-4 text-sm text-steel leading-relaxed" data-i18n="faq.a4">Blade unterstützt 14 Sprachen und viele Währungen – ideal für internationale Haushalte.</p>
+          </details>
+          <details class="reveal glass rounded-2xl p-5 group">
+            <summary class="flex items-center justify-between gap-4 text-white font-semibold">
+              <span data-i18n="faq.q5">Auf welchen Plattformen läuft Blade?</span>
+              <span class="faq-icon text-silver text-xl leading-none">+</span>
+            </summary>
+            <p class="mt-4 text-sm text-steel leading-relaxed" data-i18n="faq.a5">Blade kommt für iOS und Android. Die Anmeldung erfolgt per E-Mail/Passwort oder mit Google.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================= -->
+    <!-- 9) FINALER CTA-BANNER                                         -->
+    <!-- ============================================================= -->
+    <section id="cta" class="py-16 sm:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="reveal glass-strong rounded-3xl p-10 sm:p-16 text-center relative overflow-hidden">
+          <div class="glow absolute inset-0" aria-hidden="true"></div>
+          <div class="relative">
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+              <span data-i18n="cta.h">Bereit, deine Abos zu slayen?</span>
+            </h2>
+            <p class="mt-4 text-steel text-lg max-w-xl mx-auto" data-i18n="cta.p">Lade Blade herunter und übernimm die Kontrolle über deine Abos – privat, smart und premium.</p>
+            <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+              <a href="#" class="inline-flex items-center justify-center gap-2.5 rounded-2xl bg-silver px-6 py-3.5 text-ink font-bold hover:bg-white transition">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.365 1.43c.02 1.2-.42 2.36-1.18 3.2-.79.86-2.07 1.53-3.3 1.43-.14-1.16.44-2.38 1.16-3.16.8-.87 2.18-1.52 3.32-1.47ZM20.5 17.2c-.6 1.38-.88 1.99-1.66 3.2-1.08 1.7-2.6 3.82-4.49 3.83-1.67.02-2.1-1.09-4.36-1.08-2.26.01-2.74 1.1-4.41 1.08-1.89-.02-3.33-1.93-4.41-3.63-3.03-4.79-3.35-10.4-1.48-13.4C.72 3.2 2.9 1.9 4.94 1.9c2.08 0 3.39 1.14 5.11 1.14 1.67 0 2.69-1.14 5.1-1.14 1.83 0 3.77.99 5.15 2.7-4.53 2.48-3.79 8.94.2 10.6Z"/></svg>
+                App Store
+              </a>
+              <a href="#" class="inline-flex items-center justify-center gap-2.5 rounded-2xl glass px-6 py-3.5 text-white font-bold hover:bg-white/10 transition">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2 13.3 12 3.6 21.8c-.3-.2-.5-.6-.5-1.1V3.3c0-.5.2-.9.5-1.1Zm11.1 8.5 2.5-2.5 3.4 1.9c.8.5.8 1.6 0 2.1l-3.4 1.9-2.5-2.4-.9-.5.9-.5Z"/></svg>
+                Google Play
+              </a>
+            </div>
+            <p class="mt-4 text-xs text-slate2" data-i18n="cta.soon">Bald verfügbar im App Store & auf Google Play</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================= -->
+  <!-- 10) FOOTER                                                    -->
+  <!-- ============================================================= -->
+  <footer class="border-t border-white/10 py-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="flex flex-col md:flex-row justify-between gap-8">
+        <div class="max-w-xs">
+          <a href="#hero" class="flex items-center gap-2.5" aria-label="Blade Startseite">
+            <svg width="30" height="30" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="64" height="64" rx="16" fill="#191921"/>
+              <rect x="0.5" y="0.5" width="63" height="63" rx="15.5" stroke="#ffffff" stroke-opacity="0.12"/>
+              <path d="M22 15h12.5a11.5 11.5 0 0 1 3.2 22.1A11.5 11.5 0 0 1 34.5 49H22z" fill="#C7CEDB"/>
+              <path d="M31 21.5l9.5 6.5-9.5 6.5zM31 36l9.5 6.5-9.5 6.5z" fill="#191921"/>
+            </svg>
+            <span class="text-white font-extrabold text-lg">Blade</span>
+          </a>
+          <p class="mt-4 text-sm text-steel" data-i18n="footer.tag">Slay your subscriptions. Der on-device Abo-Manager für iOS & Android.</p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 text-sm">
+          <div>
+            <p class="font-semibold text-white mb-3" data-i18n="footer.product">Produkt</p>
+            <ul class="space-y-2 text-steel">
+              <li><a href="#features" class="hover:text-white transition" data-i18n="nav.features">Features</a></li>
+              <li><a href="#pricing" class="hover:text-white transition" data-i18n="nav.pricing">Preise</a></li>
+              <li><a href="#faq" class="hover:text-white transition" data-i18n="nav.faq">FAQ</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-semibold text-white mb-3" data-i18n="footer.legal">Rechtliches</p>
+            <ul class="space-y-2 text-steel">
+              <li><a href="#" class="hover:text-white transition" data-i18n="footer.imprint">Impressum</a></li>
+              <li><a href="#" class="hover:text-white transition" data-i18n="footer.privacy">Datenschutzerklärung</a></li>
+              <li><a href="mailto:hello@blade.app" class="hover:text-white transition" data-i18n="footer.contact">Kontakt</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-semibold text-white mb-3" data-i18n="footer.social">Social</p>
+            <ul class="space-y-2 text-steel">
+              <li><a href="#" class="hover:text-white transition">Instagram</a></li>
+              <li><a href="#" class="hover:text-white transition">X / Twitter</a></li>
+              <li><a href="#" class="hover:text-white transition">LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-2 text-xs text-slate2">
+        <p>© <span id="year"></span> Blade. <span data-i18n="footer.rights">Alle Rechte vorbehalten.</span></p>
+        <p data-i18n="footer.made">Mit ♥ und Datenschutz gebaut.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
