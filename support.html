@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===================== SEO ===================== -->
+  <title>Support & Hilfe | Blade – Subscription Slayer</title>
+  <meta name="description" content="Hilfe zu Blade: Tutorials, häufige Fragen (FAQ) und direkter Kontakt zum Support. Tiefenscan, Abos, Kündigen, Inbox Slayer, Datenschutz." />
+  <meta name="theme-color" content="#000000" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://useblade.app/support.html" />
+
+  <!-- ===================== Fonts ===================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- ===================== Favicon ===================== -->
+  <link rel="icon" type="image/png" href="blade-icon.png" />
+  <link rel="apple-touch-icon" href="blade-icon.png" />
+
+  <!-- ===================== Tailwind (CDN) ===================== -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: {
+        colors: { ink:'#000000', base:'#14181F', base2:'#191921', silver:'#C7CEDB', steel:'#9AA4B2', slate2:'#5B6472' },
+        fontFamily: { sans: ['Inter','system-ui','-apple-system','sans-serif'] },
+        borderRadius: { '2xl':'20px', '3xl':'28px' },
+      } },
+    };
+  </script>
+
+  <!-- ===================== Feinheiten ===================== -->
+  <style>
+    :root { color-scheme: dark; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: radial-gradient(1200px 800px at 70% -10%, #1c2230 0%, transparent 55%),
+                  linear-gradient(180deg, #14181F 0%, #000000 100%);
+      background-attachment: fixed;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    .glass {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(18px) saturate(140%); -webkit-backdrop-filter: blur(18px) saturate(140%);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 20px 60px -20px rgba(0,0,0,0.7);
+    }
+    .glass-strong {
+      background: rgba(255,255,255,0.09);
+      backdrop-filter: blur(24px) saturate(150%); -webkit-backdrop-filter: blur(24px) saturate(150%);
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+    .metallic {
+      background: linear-gradient(135deg,#fff 0%,#C7CEDB 40%,#9AA4B2 70%,#5B6472 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .ring-metallic { box-shadow: inset 0 0 0 1px rgba(199,206,219,0.25); }
+    .glow::before {
+      content:""; position:absolute; inset:-20% -10% auto -10%; height:70%;
+      background: radial-gradient(closest-side, rgba(91,100,114,0.35), transparent 70%);
+      filter: blur(40px); z-index:-1; pointer-events:none;
+    }
+    a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 2px solid #C7CEDB; outline-offset: 3px; border-radius: 8px;
+    }
+    /* Accordion */
+    details > summary { list-style:none; cursor:pointer; }
+    details > summary::-webkit-details-marker { display:none; }
+    details[open] .acc-icon { transform: rotate(45deg); }
+    .acc-icon { transition: transform .3s ease; }
+    /* Formularfelder */
+    .field {
+      width:100%; background: rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12);
+      border-radius: 14px; padding: 12px 14px; color:#fff; font-size:15px;
+    }
+    .field::placeholder { color:#5B6472; }
+    ::-webkit-scrollbar { width:10px; }
+    ::-webkit-scrollbar-thumb { background:#2a2f3a; border-radius:999px; }
+  </style>
+</head>
+
+<body class="font-sans text-silver antialiased">
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="fixed top-0 inset-x-0 z-50">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <nav class="mt-3 glass rounded-2xl px-4 sm:px-5 py-3 flex items-center justify-between" aria-label="Navigation">
+        <a href="index.html" class="flex items-center gap-2.5 shrink-0" aria-label="Blade Startseite">
+          <img src="blade-icon.png" alt="Blade Logo" width="34" height="34" class="rounded-[9px] ring-metallic" />
+          <span class="text-white font-extrabold text-lg tracking-tight">Blade</span>
+        </a>
+        <div class="flex items-center gap-2 sm:gap-3 text-sm font-medium">
+          <a href="#faq" class="hidden sm:inline text-steel hover:text-white transition px-2">FAQ</a>
+          <a href="#kontakt" class="inline-flex items-center gap-2 rounded-full bg-silver px-4 py-2 font-semibold text-ink hover:bg-white transition ring-metallic">Kontakt</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pt-28 sm:pt-32 pb-20">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+
+      <!-- ============================ HERO + SUCHE ============================ -->
+      <section class="relative overflow-hidden mb-12">
+        <div class="glow absolute inset-0" aria-hidden="true"></div>
+        <p class="text-sm font-semibold text-slate2 uppercase tracking-widest">Support</p>
+        <h1 class="mt-3 text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          Wie können wir <span class="metallic">helfen</span>?
+        </h1>
+        <p class="mt-4 text-steel text-lg max-w-2xl">Tutorials, Antworten auf häufige Fragen – und wenn du nicht weiterkommst, erreichst du uns unten direkt.</p>
+
+        <!-- Live-Suche -->
+        <div class="mt-6 relative max-w-xl">
+          <svg class="absolute left-4 top-1/2 -translate-y-1/2 text-slate2" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input id="search" type="search" class="field !pl-12" placeholder="Suche in Tutorials & FAQ … (z. B. Tiefenscan, kündigen, Sprache)" aria-label="Support durchsuchen" />
+        </div>
+
+        <!-- Schnellthemen -->
+        <div class="mt-5 flex flex-wrap gap-2 text-xs font-semibold">
+          <a href="#tutorials" class="glass rounded-full px-3.5 py-1.5 text-silver hover:bg-white/10 transition">🚀 Erste Schritte</a>
+          <a href="#tutorials" class="glass rounded-full px-3.5 py-1.5 text-silver hover:bg-white/10 transition">🔍 Tiefenscan</a>
+          <a href="#tutorials" class="glass rounded-full px-3.5 py-1.5 text-silver hover:bg-white/10 transition">⚔️ Kündigen</a>
+          <a href="#faq" class="glass rounded-full px-3.5 py-1.5 text-silver hover:bg-white/10 transition">🔒 Datenschutz</a>
+          <a href="#kontakt" class="glass rounded-full px-3.5 py-1.5 text-silver hover:bg-white/10 transition">✉️ Kontakt</a>
+        </div>
+      </section>
+
+      <!-- ============================ TUTORIALS ============================ -->
+      <section id="tutorials" class="mb-16 scroll-mt-28">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-6">Tutorials</h2>
+        <div class="grid sm:grid-cols-2 gap-4" id="tutorial-list">
+
+          <details class="qa glass rounded-2xl p-5 group">
+            <summary class="flex items-start justify-between gap-4">
+              <span class="flex items-center gap-3"><span class="text-xl">🚀</span><span class="text-white font-semibold">Konto erstellen & anmelden</span></span>
+              <span class="acc-icon text-silver text-xl leading-none shrink-0">+</span>
+            </summary>
+            <ol class="mt-4 space-y-2 text-sm text-steel list-decimal pl-5">
+              <li>Öffne Blade und tippe auf <strong class="text-white">Registrieren</strong>.</li>
+              <li>Melde dich mit <strong class="text-white">E-Mail &amp; Passwort</strong> oder mit <strong class="text-white">Google</strong> an.</li>
+              <li>Fertig – du landest direkt auf deiner <strong class="text-white">Übersicht</strong>.</li>
+            </ol>
+          </details>
+
+          <details class="qa glass rounded-2xl p-5 group">
+            <summary class="flex items-start justify-between gap-4">
+              <span class="flex items-center gap-3"><span class="text-xl">🔍</span><span class="text-white font-semibold">KI-Tiefenscan: Abos automatisch finden</span></span>
+              <span class="acc-icon text-silver text-xl leading-none shrink-0">+</span>
+            </summary>
+            <ol class="mt-4 space-y-2 text-sm text-steel list-decimal pl-5">
+              <li>Gehe zum Tab <strong class="text-white">Abos</strong> und tippe auf die Karte <strong class="text-white">KI-Tiefenscan</strong>.</li>
+              <li>Verbinde dein <strong class="text-white">Gmail-Postfach</strong> (nur Lesezugriff).</li>
+              <li>Wähle den <strong class="text-white">Zeitraum</strong> (1–12 Monate). Länger findet auch jährliche Abos.</li>
+              <li>Die Blade-KI analysiert <strong class="text-white">on-device</strong> und zeigt dir die Treffer.</li>
+              <li>Du <strong class="text-white">bestätigst</strong> selbst, welche Treffer als Abo übernommen werden.</li>
+            </ol>
+          </details>
+
+          <details class="qa glass rounded-2xl p-5 group">
+            <summary class="flex items-start justify-between gap-4">
+              <span class="flex items-center gap-3"><span class="text-xl">➕</span><span class="text-white font-semibold">Abo manuell hinzufügen</span></span>
+              <span class="acc-icon text-silver text-xl leading-none shrink-0">+</span>
+            </summary>
+            <ol class="mt-4 space-y-2 text-sm text-steel list-decimal pl-5">
+              <li>Tab <strong class="text-white">Abos</strong> → oben rechts auf <strong class="text-white">+</strong>.</li>
+              <li>Anbieter wählen und ggf. den <strong class="text-white">Tarif</strong> (z. B. Netflix HD/UHD, Spotify, Disney+).</li>
+              <li>Preis, Währung und <strong class="text-white">Zahlungszyklus</strong> eintragen.</li>
+              <li>Speichern – das Abo erscheint in deiner Liste und im Dashboard.</li>
+            </ol>
+          </details>
+
+          <details class="qa glass rounded-2xl p-5 group">
+            <summary class="flex items-start justify-between gap-4">
+              <span class="flex items-center gap-3"><span class="text-xl">🧹</span><span class="text-white font-semibold">Inbox Slayer: Newsletter abbestellen</span></span>
+              <span class="acc-icon text-silver text-xl leading-none shrink-0">+</span>
+            </summary>
+            <ol class="mt-4 space-y-2 text-sm text-steel list-decimal pl-5">
+              <li>Tab <strong class="text-white">Inbox</strong> → Postfach verbinden.</li>
+              <li>Blade listet deine <strong class="text-white">Newsletter-Absender</strong> nach Kategorie.</li>
+              <li>Mit einem <strong class="text-white">Wisch</strong> abbestellen – die Mails wandern zusätzlich in den Papierkorb.</li>
+            </ol>
+          </details>
+
+          <details class="qa glass rounded-2xl p-5 group">
+            <summary class="flex items-start justify-between gap-4">
+              <span class="flex items-center gap-3"><span class="text-xl">⚔️</span><span class="text-white font-semibold">Abo kündigen &amp; wiederherstellen</span></span>
+              <span class="acc-icon text-silver text-xl leading-none shrink-0">+</span>
+            </summary>
+            <ol class="mt-4 space-y-2 text-sm text-steel list-decimal pl-5">
+              <li>Tab <strong class="text-white">Kündigen</strong> zeigt dir Kandidaten &amp; dein Sparpotenzial.</li>
+              <li>Tippe auf ein Abo → <strong class="text-white">Direktlink</strong> zur Kündigungsseite des Anbieters.</li>
+              <li>Versehentlich gelöscht? Ein Abo ist <strong class="text-white">24 Stunden</strong> lang wiederherstellbar.</li>
+            </ol>
+          </details>
+
+          <details class="qa glass rounded-2xl p-5 group">
+            <summary class="flex items-start justify-between gap-4">
+              <span class="flex items-center gap-3"><span class="text-xl">👨‍👩‍👧</span><span class="text-white font-semibold">Haushalt teilen</span></span>
+              <span class="acc-icon text-silver text-xl leading-none shrink-0">+</span>
+            </summary>
+            <ol class="mt-4 space-y-2 text-sm text-steel list-decimal pl-5">
+              <li>Tab <strong class="text-white">Zuhause</strong> → <strong class="text-white">Haushalt erstellen</strong> oder mit einem Code <strong class="text-white">beitreten</strong>.</li>
+              <li>Teile den <strong class="text-white">Einladungscode</strong> mit Familie/WG.</li>
+              <li>Alle Mitglieder sehen die geteilten Abos und die faire Kostenaufteilung.</li>
+            </ol>
+          </details>
+
+          <details class="qa glass rounded-2xl p-5 group">
+            <summary class="flex items-start justify-between gap-4">
+              <span class="flex items-center gap-3"><span class="text-xl">🎨</span><span class="text-white font-semibold">Sprache, Währung &amp; Theme ändern</span></span>
+              <span class="acc-icon text-silver text-xl leading-none shrink-0">+</span>
+            </summary>
+            <ol class="mt-4 space-y-2 text-sm text-steel list-decimal pl-5">
+              <li>Profil-Icon (oben rechts) → <strong class="text-white">Einstellungen</strong>.</li>
+              <li><strong class="text-white">App-Sprache</strong> (14 Sprachen) und <strong class="text-white">Währung</strong> wählen.</li>
+              <li>Unter <strong class="text-white">Hintergrund</strong> ein Theme setzen (Schwarz, Onyx, Graphit …).</li>
+              <li>Optional: <strong class="text-white">Erinnerung vor Abbuchung</strong> aktivieren.</li>
+            </ol>
+          </details>
+
+          <details class="qa glass rounded-2xl p-5 group">
+            <summary class="flex items-start justify-between gap-4">
+              <span class="flex items-center gap-3"><span class="text-xl">🗑️</span><span class="text-white font-semibold">Daten exportieren &amp; Konto löschen</span></span>
+              <span class="acc-icon text-silver text-xl leading-none shrink-0">+</span>
+            </summary>
+            <ol class="mt-4 space-y-2 text-sm text-steel list-decimal pl-5">
+              <li>Einstellungen → <strong class="text-white">Abos als CSV exportieren</strong> für dein Backup.</li>
+              <li>Einstellungen → <strong class="text-white">Konto löschen</strong> entfernt dein Konto und alle Daten unwiderruflich.</li>
+              <li>Mehr dazu in unserer <a href="datenschutz.html" class="text-silver underline underline-offset-2">Datenschutzerklärung</a>.</li>
+            </ol>
+          </details>
+
+        </div>
+      </section>
+
+      <!-- ============================ FAQ ============================ -->
+      <section id="faq" class="mb-16 scroll-mt-28">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-6">Häufige Fragen</h2>
+        <div class="space-y-3" id="faq-list">
+
+          <details class="qa glass rounded-2xl p-5 group">
+            <summary class="flex items-center justify-between gap-4 text-white font-semibold">
+              <span>Ist der E-Mail-Scan sicher?</span><span class="acc-icon text-silver text-xl leading-none">+</span>
+            </summary>
+            <p class="mt-4 text-sm text-steel leading-relaxed">Ja. Der Tiefenscan läuft komplett <strong class="text-white">on-device</strong> – deine E-Mails werden lokal analysiert, nur kurz zur Erkennung und niemals auf Servern gespeichert oder weitergegeben. Blade hat ausschließlich <strong class="text-white">Lesezugriff</strong> und verändert, verschickt oder löscht nichts in deinem Postfach.</p>
+          </details>
+
+          <details class="qa glass rounded-2xl p-5 group">
+            <summary class="flex items-center justify-between gap-4 text-white font-semibold">
+              <span>Welche Postfächer &amp; Anbieter werden unterstützt?</span><span class="acc-icon text-silver text-xl leading-none">+</span>
+            </summary>
+            <p class="mt-4 text-sm text-steel leading-relaxed">Gmail sowie alle gängigen IMAP-Postfächer wie <strong class="text-white">iCloud, Yahoo, GMX, Web.de und T-Online</strong>. Erkannt werden Streaming-, Software-, Fitness- und viele weitere Abos.</p>
+          </details>
+
+          <details class="qa glass rounded-2xl p-5 group">
+            <summary class="flex items-center justify-between gap-4 text-white font-semibold">
+              <span>Warum braucht Blade Zugriff auf mein Postfach?</span><span class="acc-icon text-silver text-xl leading-none">+</span>
+            </summary>
+            <p class="mt-4 text-sm text-steel leading-relaxed">Nur um Rechnungen/Bestätigungen zu <strong class="text-white">erkennen</strong>. Es wird ausschließlich der Absender und der Abmelde-Link gelesen – nie Betreff oder Inhalt dauerhaft. Den Zugriff kannst du jederzeit wieder trennen.</p>
+          </details>
+
+          <details class="qa glass rounded-2xl p-5 group">
+            <summary class="flex items-center justify-between gap-4 text-white font-semibold">
+              <span>Was kostet Blade?</span><span class="acc-icon text-silver text-xl leading-none">+</span>
+            </summary>
+            <p class="mt-4 text-sm text-steel leading-relaxed">Die Kernfunktionen sind <strong class="text-white">kostenlos</strong>. Mit <strong class="text-white">Blade Premium</strong> schaltest du KI-Tiefenscan, Inbox Slayer (unbegrenzt), mehrere Postfächer und Haushalt-Sharing frei. Abrechnung über den App Store, jederzeit kündbar.</p>
+          </details>
+
+          <details class="qa glass rounded-2xl p-5 group">
+            <summary class="flex items-center justify-between gap-4 text-white font-semibold">
+              <span>Wie kündige ich ein Abo?</span><span class="acc-icon text-silver text-xl leading-none">+</span>
+            </summary>
+            <p class="mt-4 text-sm text-steel leading-relaxed">Im Tab <strong class="text-white">Kündigen</strong> findest du Direktlinks zur Kündigungsseite des jeweiligen Anbieters. Blade selbst kündigt nicht in deinem Namen – du behältst die Kontrolle.</p>
+          </details>
+
+          <details class="qa glass rounded-2xl p-5 group">
+            <summary class="flex items-center justify-between gap-4 text-white font-semibold">
+              <span>Ich habe ein Abo aus Versehen gelöscht – was tun?</span><span class="acc-icon text-silver text-xl leading-none">+</span>
+            </summary>
+            <p class="mt-4 text-sm text-steel leading-relaxed">Kein Problem: Gelöschte Einträge sind <strong class="text-white">24 Stunden</strong> lang wiederherstellbar. Danach werden sie endgültig entfernt.</p>
+          </details>
+
+          <details class="qa glass rounded-2xl p-5 group">
+            <summary class="flex items-center justify-between gap-4 text-white font-semibold">
+              <span>Welche Sprachen &amp; Währungen werden unterstützt?</span><span class="acc-icon text-silver text-xl leading-none">+</span>
+            </summary>
+            <p class="mt-4 text-sm text-steel leading-relaxed">Blade unterstützt <strong class="text-white">14 Sprachen</strong> und viele Währungen – ideal für internationale Haushalte. Beides änderst du in den Einstellungen.</p>
+          </details>
+
+          <details class="qa glass rounded-2xl p-5 group">
+            <summary class="flex items-center justify-between gap-4 text-white font-semibold">
+              <span>Auf welchen Plattformen läuft Blade?</span><span class="acc-icon text-silver text-xl leading-none">+</span>
+            </summary>
+            <p class="mt-4 text-sm text-steel leading-relaxed">Blade gibt es für <strong class="text-white">iOS</strong> und <strong class="text-white">Android</strong>. Die Anmeldung erfolgt per E-Mail/Passwort oder mit Google.</p>
+          </details>
+
+          <details class="qa glass rounded-2xl p-5 group">
+            <summary class="flex items-center justify-between gap-4 text-white font-semibold">
+              <span>Wie lösche ich mein Konto?</span><span class="acc-icon text-silver text-xl leading-none">+</span>
+            </summary>
+            <p class="mt-4 text-sm text-steel leading-relaxed">In den <strong class="text-white">Einstellungen → Konto löschen</strong>. Dabei werden dein Konto und alle verknüpften Daten unwiderruflich entfernt. Details in der <a href="datenschutz.html" class="text-silver underline underline-offset-2">Datenschutzerklärung</a>.</p>
+          </details>
+
+        </div>
+        <p id="no-results" class="hidden mt-6 text-center text-steel">Keine Treffer. Formuliere die Suche anders – oder <a href="#kontakt" class="text-silver underline underline-offset-2">kontaktiere uns direkt</a>.</p>
+      </section>
+
+      <!-- ============================ KONTAKT ============================ -->
+      <section id="kontakt" class="scroll-mt-28">
+        <div class="glass-strong rounded-3xl p-8 sm:p-12 relative overflow-hidden">
+          <div class="glow absolute inset-0" aria-hidden="true"></div>
+          <div class="relative grid lg:grid-cols-2 gap-10">
+            <div>
+              <p class="text-sm font-semibold text-slate2 uppercase tracking-widest">Kontakt</p>
+              <h2 class="mt-3 text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Nicht fündig geworden?</h2>
+              <p class="mt-4 text-steel leading-relaxed">Schreib uns direkt – wir antworten in der Regel innerhalb von <strong class="text-white">24–48 Stunden</strong>.</p>
+
+              <a href="mailto:support@useblade.app" class="mt-6 inline-flex items-center gap-2.5 rounded-2xl bg-silver px-5 py-3 text-ink font-semibold hover:bg-white transition">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                support@useblade.app
+              </a>
+
+              <div class="mt-8 space-y-2 text-sm text-steel">
+                <p class="flex items-center gap-2"><span class="text-silver">⚖️</span> <a href="datenschutz.html" class="hover:text-white transition">Datenschutzerklärung</a></p>
+                <p class="flex items-center gap-2"><span class="text-silver">🌐</span> <a href="index.html" class="hover:text-white transition">Zurück zur Startseite</a></p>
+              </div>
+            </div>
+
+            <!-- Kontaktformular (öffnet die Mail-App vorausgefüllt) -->
+            <form id="contact-form" class="glass rounded-2xl p-5 sm:p-6 space-y-4">
+              <div>
+                <label for="cf-name" class="block text-xs font-semibold text-steel mb-1.5">Dein Name</label>
+                <input id="cf-name" type="text" class="field" placeholder="Max Mustermann" required />
+              </div>
+              <div>
+                <label for="cf-email" class="block text-xs font-semibold text-steel mb-1.5">Deine E-Mail</label>
+                <input id="cf-email" type="email" class="field" placeholder="max@example.com" required />
+              </div>
+              <div>
+                <label for="cf-subject" class="block text-xs font-semibold text-steel mb-1.5">Betreff</label>
+                <input id="cf-subject" type="text" class="field" placeholder="Worum geht’s?" required />
+              </div>
+              <div>
+                <label for="cf-message" class="block text-xs font-semibold text-steel mb-1.5">Nachricht</label>
+                <textarea id="cf-message" rows="4" class="field resize-y" placeholder="Beschreib dein Anliegen …" required></textarea>
+              </div>
+              <button type="submit" class="w-full rounded-2xl bg-silver px-5 py-3 text-ink font-bold hover:bg-white transition">
+                Nachricht senden
+              </button>
+              <p class="text-[11px] text-slate2 text-center">Öffnet deine Mail-App mit vorausgefüllter Nachricht an unseren Support.</p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="border-t border-white/10 py-10 mt-16">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 flex flex-col sm:flex-row justify-between gap-3 text-xs text-slate2">
+      <p>© <span id="year"></span> Blade. Alle Rechte vorbehalten.</p>
+      <div class="flex gap-4">
+        <a href="index.html" class="hover:text-white transition">Start</a>
+        <a href="#tutorials" class="hover:text-white transition">Tutorials</a>
+        <a href="#faq" class="hover:text-white transition">FAQ</a>
+        <a href="datenschutz.html" class="hover:text-white transition">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Support-E-Mail zentral (hier bei Bedarf ändern)
+    var SUPPORT_EMAIL = "support@useblade.app";
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // --- Live-Suche: filtert Tutorials + FAQ ---
+    var search = document.getElementById('search');
+    var items = Array.prototype.slice.call(document.querySelectorAll('.qa'));
+    var noResults = document.getElementById('no-results');
+    search.addEventListener('input', function () {
+      var q = search.value.trim().toLowerCase();
+      var anyFaq = false;
+      items.forEach(function (el) {
+        var match = el.textContent.toLowerCase().indexOf(q) !== -1;
+        el.style.display = match ? '' : 'none';
+        if (match && el.closest('#faq-list')) anyFaq = true;
+      });
+      // "Keine Treffer" nur zeigen, wenn im FAQ nichts passt und Suche aktiv
+      var faqVisible = document.querySelectorAll('#faq-list .qa:not([style*="display: none"])').length;
+      noResults.classList.toggle('hidden', !(q && faqVisible === 0));
+    });
+
+    // --- Kontaktformular → mailto ---
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = document.getElementById('cf-name').value.trim();
+      var email = document.getElementById('cf-email').value.trim();
+      var subject = document.getElementById('cf-subject').value.trim();
+      var message = document.getElementById('cf-message').value.trim();
+      var body = message + "\n\n— " + name + " (" + email + ")";
+      window.location.href = "mailto:" + SUPPORT_EMAIL +
+        "?subject=" + encodeURIComponent("[Blade Support] " + subject) +
+        "&body=" + encodeURIComponent(body);
+    });
+  </script>
+</body>
+</html>
