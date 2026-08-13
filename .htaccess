@@ -1,0 +1,23 @@
+# ============================================================
+# Saubere URLs ohne .html  (z. B. /support statt /support.html)
+# Läuft auf Apache & LiteSpeed (cPanel / Namecheap-Hosting)
+# ============================================================
+
+Options -MultiViews
+RewriteEngine On
+
+# /index oder /index.html  ->  /   (Startseite ohne Dateiname)
+RewriteCond %{THE_REQUEST} \s/+index(?:\.html)?[\s?/] [NC]
+RewriteRule ^ / [R=301,L]
+
+# /seite.html  ->  /seite   (301-Redirect, entfernt die Endung aus der URL)
+RewriteCond %{THE_REQUEST} \s/+([^\s?]+)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# /seite  ->  intern seite.html ausliefern (wenn die Datei existiert)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
+
+# Standard-Startdatei
+DirectoryIndex index.html
