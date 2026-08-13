@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/usebyvll/public_html/
+    - /bin/cp -R index.html datenschutz.html support.html script.js blade-icon.png screens "$DEPLOYPATH"
+    - /bin/cp .htaccess "$DEPLOYPATH"
