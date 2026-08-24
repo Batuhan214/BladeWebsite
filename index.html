@@ -652,46 +652,90 @@
       <div class="mx-auto max-w-7xl px-4 sm:px-6">
         <div class="reveal max-w-2xl mb-14">
           <p class="text-sm font-semibold text-slate2 uppercase tracking-widest" data-i18n="pricing.eyebrow">Preise</p>
-          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-white tracking-tight" data-i18n="pricing.h2">Starte kostenlos. Werde Pro.</h2>
-          <p class="mt-4 text-steel text-lg" data-i18n="pricing.sub">Alle Kernfunktionen gratis. Für den vollen Slay upgraden.</p>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-white tracking-tight" data-i18n="pricing.h2">Starte kostenlos. Werde Premium.</h2>
+          <p class="mt-4 text-steel text-lg" data-i18n="pricing.sub">Ein Premium – alle Funktionen. Du wählst nur, wie du zahlst.</p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-6 max-w-4xl">
+        <!-- Free + zentrale Premium-Vorteile -->
+        <div class="grid lg:grid-cols-3 gap-6 mb-6 items-stretch">
           <!-- Free -->
-          <div class="reveal glass rounded-3xl p-8">
+          <div class="reveal glass rounded-3xl p-8 flex flex-col">
             <p class="text-sm font-semibold text-steel" data-i18n="pricing.free">Free</p>
-            <p class="mt-3 text-4xl font-extrabold text-white">€ 0</p>
+            <p class="mt-1 text-xs text-slate2" data-i18n="pricing.freesub2">Die vollwertige Abo-Verwaltung.</p>
+            <p class="mt-4 text-4xl font-extrabold text-white"><span data-i18n="pricing.pricefree">€ 0</span></p>
             <p class="text-xs text-slate2 mt-1" data-i18n="pricing.freesub">für immer</p>
-            <ul class="mt-7 space-y-3 text-sm text-steel">
-              <li class="flex items-start gap-3"><span class="text-silver">✓</span> <span data-i18n="pricing.f1">KI zum Ausprobieren (3 Importe + 1 Tiefenscan gratis)</span></li>
-              <li class="flex items-start gap-3"><span class="text-silver">✓</span> <span data-i18n="pricing.f2">Widgets, Abo-Rückblick & Belohnungen</span></li>
-              <li class="flex items-start gap-3"><span class="text-silver">✓</span> <span data-i18n="pricing.f3">Trial-Killer & Sparpotenzial-Übersicht</span></li>
-              <li class="flex items-start gap-3"><span class="text-silver">✓</span> <span data-i18n="pricing.f4">Kündigen mit Direktlinks & 24-h-Reaktivierung</span></li>
-              <li class="flex items-start gap-3"><span class="text-silver">✓</span> <span data-i18n="pricing.f5">1 Postfach</span></li>
+            <ul class="mt-6 space-y-2.5 text-sm text-steel">
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="pricing.f1">Unbegrenzt Abos manuell anlegen & verwalten</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="pricing.f2">Übersicht & Kosten-Dashboard (Monats- & Jahreskosten, Kategorien, viele Währungen)</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="pricing.f3">Kündigungs- & Testphasen-Erinnerungen (Trial-Killer)</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="pricing.f4">Kündigen mit Direktlinks + 24-Stunden-Reaktivierung</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="pricing.f5">Home-/Lock-Screen-Widgets & Apple Watch</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="pricing.f6">Abo-Rückblick (Story) & Belohnungen/Glücksrad</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="pricing.f7">1 Postfach verbinden</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="pricing.f8">Sparpotenzial: Gesamtsumme sichtbar</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="pricing.f9">KI zum Ausprobieren: 3 KI-Importe, 1 Tiefenscan & 5 Inbox-Slayer-Aktionen gratis</span></li>
             </ul>
-            <a href="#cta" class="mt-8 block text-center rounded-2xl glass-strong px-5 py-3 text-white font-semibold hover:bg-white/10 transition" data-i18n="pricing.freecta">Kostenlos starten</a>
+            <a href="#cta" class="mt-auto pt-8 block text-center rounded-2xl glass-strong px-5 py-3 text-white font-semibold hover:bg-white/10 transition" data-i18n="pricing.freecta">Kostenlos starten</a>
           </div>
 
-          <!-- Pro -->
-          <div class="reveal glass-strong rounded-3xl p-8 relative ring-metallic">
-            <span class="absolute top-6 right-6 text-[10px] font-bold uppercase tracking-wider glass rounded-full px-3 py-1 text-silver" data-i18n="pricing.popular">Beliebt</span>
-            <p class="text-sm font-semibold metallic inline-block" data-i18n="pricing.pro">Blade Pro</p>
-            <p class="mt-3 text-4xl font-extrabold text-white">€ 3,99<span class="text-base font-medium text-steel" data-i18n="pricing.month">/Monat</span></p>
-            <p class="text-xs text-slate2 mt-1" data-i18n="pricing.prosub">jederzeit kündbar</p>
-            <ul class="mt-7 space-y-3 text-sm text-steel">
-              <li class="flex items-start gap-3"><span class="text-silver">✓</span> <span class="text-white" data-i18n="pricing.p1">Alles aus Free, plus:</span></li>
-              <li class="flex items-start gap-3"><span class="text-silver">✓</span> <span data-i18n="pricing.p2">Unbegrenzter KI-Import & KI-Tiefenscan</span></li>
-              <li class="flex items-start gap-3"><span class="text-silver">✓</span> <span data-i18n="pricing.p3">Automatischer Tages-Scan</span></li>
-              <li class="flex items-start gap-3"><span class="text-silver">✓</span> <span data-i18n="pricing.p4">Preiserhöhungs-Alarm</span></li>
-              <li class="flex items-start gap-3"><span class="text-silver">✓</span> <span data-i18n="pricing.p5">Sparpotenzial im Detail (ungenutzte Abos kündigen)</span></li>
-              <li class="flex items-start gap-3"><span class="text-silver">✓</span> <span data-i18n="pricing.p6">Mehrere Postfächer gleichzeitig</span></li>
-              <li class="flex items-start gap-3"><span class="text-silver">✓</span> <span data-i18n="pricing.p7">Inbox Slayer unbegrenzt</span></li>
-              <li class="flex items-start gap-3"><span class="text-silver">✓</span> <span data-i18n="pricing.p8">Haushalt teilen</span></li>
+          <!-- Premium-Vorteile (zentral, für alle 3 Varianten) -->
+          <div class="reveal glass-strong rounded-3xl p-8 lg:col-span-2 ring-metallic">
+            <div class="flex items-center gap-3 flex-wrap">
+              <p class="text-lg font-extrabold metallic" data-i18n="pricing.premtitle">Blade Premium</p>
+              <span class="text-[10px] font-bold uppercase tracking-wider glass rounded-full px-3 py-1 text-silver" data-i18n="pricing.premtag">Eine Stufe · 3 Abrechnungen</span>
+            </div>
+            <p class="mt-2 text-sm text-steel" data-i18n="pricing.premsub">Alle Varianten enthalten dieselben Funktionen – du wählst nur die Laufzeit.</p>
+            <p class="mt-6 text-sm font-semibold text-white" data-i18n="pricing.p1">Alles aus Free, plus:</p>
+            <ul class="mt-4 grid sm:grid-cols-2 gap-x-6 gap-y-2.5 text-sm text-steel">
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="pricing.p2">Unbegrenzter KI-Import (Freitext, E-Mail/Foto, Mail-Weiterleitung)</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="pricing.p3">KI-Tiefenscan unbegrenzt + automatischer Tages-Scan</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="pricing.p4">Gefundene Abos direkt übernehmen (Free sieht nur die Anzahl)</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="pricing.p5">Preiserhöhungs-Alarm</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="pricing.p6">Sparpotenzial im Detail: konkrete Abos, mit einem Tap kündigen</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="pricing.p7">Mehrere Postfächer gleichzeitig</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="pricing.p8">Inbox Slayer unbegrenzt</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="pricing.p9">Haushalt teilen (Familie & WG)</span></li>
+              <li class="flex items-start gap-3"><span class="text-silver mt-0.5">✓</span> <span data-i18n="pricing.p10">Keine Werbung</span></li>
             </ul>
-            <a href="#cta" class="mt-8 block text-center rounded-2xl bg-silver px-5 py-3 text-ink font-bold hover:bg-white transition" data-i18n="pricing.procta">Pro holen</a>
           </div>
         </div>
-        <p class="mt-4 text-xs text-slate2" data-i18n="pricing.note">* Platzhalter-Preise. Endgültige Tarife folgen zum Launch.</p>
+
+        <!-- 3 Abrechnungs-Varianten (identische Funktionen) -->
+        <div class="grid sm:grid-cols-3 gap-6">
+          <!-- Monatlich -->
+          <div class="reveal glass rounded-3xl p-6 flex flex-col text-center relative">
+            <p class="mt-2 text-sm font-semibold text-white" data-i18n="pricing.varmonth">Monatlich</p>
+            <p class="mt-3 text-3xl font-extrabold text-white"><span data-i18n="pricing.pricemonth">€ 1,99</span><span class="text-sm font-medium text-steel" data-i18n="pricing.permonth">/Monat</span></p>
+            <p class="mt-2 text-xs text-slate2 min-h-[2.75rem]" data-i18n="pricing.monthsub">Flexibel, monatlich kündbar.</p>
+            <a href="#cta" class="mt-auto block text-center rounded-2xl glass-strong px-5 py-3 text-white font-semibold hover:bg-white/10 transition" data-i18n="pricing.monthcta">Monatlich holen</a>
+          </div>
+
+          <!-- Jährlich (hervorgehoben) -->
+          <div class="reveal glass-strong rounded-3xl p-6 flex flex-col text-center relative ring-metallic">
+            <div class="absolute -top-3 inset-x-0 flex justify-center gap-2">
+              <span class="text-[10px] font-bold uppercase tracking-wider bg-silver text-ink rounded-full px-3 py-1" data-i18n="pricing.popular">Beliebt</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider glass rounded-full px-3 py-1 text-silver" data-i18n="pricing.save37">−37 %</span>
+            </div>
+            <p class="mt-2 text-sm font-semibold text-white" data-i18n="pricing.varyear">Jährlich</p>
+            <p class="mt-3 text-3xl font-extrabold text-white"><span data-i18n="pricing.priceyear">€ 14,99</span><span class="text-sm font-medium text-steel" data-i18n="pricing.peryear">/Jahr</span></p>
+            <p class="text-xs text-silver mt-1" data-i18n="pricing.yearmonthly">nur € 1,25 / Monat</p>
+            <p class="mt-2 text-xs text-slate2 min-h-[2.75rem]" data-i18n="pricing.yearsub">Spare ~37 % gegenüber monatlich.</p>
+            <a href="#cta" class="mt-auto block text-center rounded-2xl bg-silver px-5 py-3 text-ink font-bold hover:bg-white transition" data-i18n="pricing.yearcta">Jährlich holen</a>
+          </div>
+
+          <!-- Lifetime -->
+          <div class="reveal glass rounded-3xl p-6 flex flex-col text-center relative">
+            <div class="absolute -top-3 inset-x-0 flex justify-center">
+              <span class="text-[10px] font-bold uppercase tracking-wider glass rounded-full px-3 py-1 text-silver" data-i18n="pricing.bestvalue">Bester Wert</span>
+            </div>
+            <p class="mt-2 text-sm font-semibold text-white" data-i18n="pricing.varlife">Lifetime</p>
+            <p class="mt-3 text-3xl font-extrabold text-white"><span data-i18n="pricing.pricelife">€ 49,99</span> <span class="text-sm font-medium text-steel" data-i18n="pricing.once">einmalig</span></p>
+            <p class="mt-2 text-xs text-slate2 min-h-[2.75rem]" data-i18n="pricing.lifesub">Einmal zahlen, für immer Premium.</p>
+            <a href="#cta" class="mt-auto block text-center rounded-2xl glass-strong px-5 py-3 text-white font-semibold hover:bg-white/10 transition" data-i18n="pricing.lifecta">Lifetime holen</a>
+          </div>
+        </div>
+
+        <p class="mt-6 text-xs text-slate2 text-center" data-i18n="pricing.note">Zahlung & Verwaltung über den App Store, jederzeit kündbar. Bald verfügbar.</p>
       </div>
     </section>
 
