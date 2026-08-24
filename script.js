@@ -212,6 +212,15 @@
       }
     });
     document.documentElement.lang = lang;
+    // Sprachabhängige Screenshots (data-shot): DE = <name>.png, EN = <name>-en.png
+    document.querySelectorAll('[data-shot]').forEach(function (img) {
+      var base = img.getAttribute('data-shot');
+      var src = 'screens/' + base + (lang === 'en' ? '-en' : '') + '.png';
+      if (img.getAttribute('src') !== src) {
+        img.onerror = function () { img.onerror = null; img.src = 'screens/' + base + '.png'; };
+        img.setAttribute('src', src);
+      }
+    });
     // Button-States
     document.querySelectorAll('.lang-btn').forEach(function (btn) {
       var active = btn.getAttribute('data-lang') === lang;
