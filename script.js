@@ -89,7 +89,7 @@
     'mock.cancel': 'Cancels in 3 days', 'mock.slay': '⚔️ 3 subscriptions to slay',
     // Trust
     'trust.1num': 'Private', 'trust.1': 'Data-minimal · no data selling', 'trust.2': 'Languages worldwide',
-    'trust.3num': 'All', 'trust.3': 'Inboxes: Gmail, Outlook & IMAP', 'trust.4': 'compliant & data-minimal',
+    'trust.3num': 'All', 'trust.3': 'Inboxes: Gmail, Outlook & IMAP', 'trust.4num': 'GDPR', 'trust.4': 'compliant & data-minimal',
     // Features intro
     'features.eyebrow': 'Features', 'features.h2': 'Everything to master your subscriptions',
     'features.sub': 'From automatic detection to one-tap cancellation – Blade does the work for you.',
@@ -110,6 +110,8 @@
     'f3.l1': 'Reads emails, screenshots & photos (price & term)',
     'f3.l2': 'Add manually incl. plan choice (Netflix HD/UHD, Spotify, Disney+ …)',
     'f3.mfrom': 'From: billing@netflix.com', 'f3.parsing': 'AI reading…', 'f3.add': 'Add subscription',
+    'f3.mquote': '"Your <span class="text-silver">Netflix Premium (UHD)</span> subscription was renewed. Amount: <span class="text-silver">€19.99</span>/month."',
+    'f3.mplan': 'Premium UHD · monthly',
     // F4
     'f4.tag': 'Cancel & Reactivate', 'f4.h': 'Cancelling made easy',
     'f4.p': 'Direct links take you straight to the provider’s cancellation page. And if you delete a subscription by accident, it’s <strong class="text-white">reactivatable for 24 hours</strong>.',
